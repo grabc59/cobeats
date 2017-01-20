@@ -1,0 +1,13 @@
+{
+  "name": "cobeats",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:grabc59/cobeats.git",
+  "author": "Chris Grabski, Ariana Clark, Laura Baukol, Elizabeth Davis, Matthew Gordon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "pg": "^6.1.2"
+  }
+}
