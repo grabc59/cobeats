@@ -34,11 +34,12 @@ describe('API routes', () => {
   });
 
   describe('GET /admin/users', () => {
-    it('should return all users', (done) => {
+    it('should return all resources', (done) => {
       chai.request(server)
       .get('/admin/users')
       .end((err, res) => {
         res.should.have.status(200);
+        res.should.be.json;
         res.body.should.be.a('array');
         res.body.length.should.eql(5);
         res.body[0].should.have.property('name');
@@ -53,11 +54,12 @@ describe('API routes', () => {
   });
 
   describe('GET /admin/users/:id', () => {
-    it('should return one user', (done) => {
+    it('should return one resource by id', (done) => {
       chai.request(server)
       .get('/admin/users/1')
       .end((err, res) => {
         res.should.have.status(200);
+        res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('name');
         res.body.name.should.eql('Matt Gordon');
@@ -65,6 +67,30 @@ describe('API routes', () => {
         res.body.email.should.eql('mattgordon@cobeats.com');
         res.body.should.have.property('admin');
         res.body.admin.should.eql(true);
+        done();
+      });
+    });
+  });
+
+  describe('POST /admin/users', () => {
+    it('should create a resource', (done) => {
+      chai.request(server)
+      .post('/admin/users')
+      .send({
+        name: 'New Resource',
+        email: 'newresource@cobeats.com',
+        admin: false
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.eql('New Resource');
+        res.body.should.have.property('email');
+        res.body.email.should.eql('newresource@cobeats.com');
+        res.body.should.have.property('admin');
+        res.body.name.should.eql(false);
         done();
       });
     });

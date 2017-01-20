@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../db/queries');
 
-// *** GET all users *** //
+// *** GET all resources *** //
 router.get('/users', (req, res, next) => {
   queries.getAll()
   .then((users) => {
@@ -15,7 +15,7 @@ router.get('/users', (req, res, next) => {
   });
 });
 
-// *** GET single user by id *** //
+// *** GET single resource by id *** //
 router.get('/users/:id', (req, res, next) => {
   queries.getSingle(req.params.id)
   .then((user) => {
@@ -25,5 +25,7 @@ router.get('/users/:id', (req, res, next) => {
     next(error);
   });
 });
+
+// *** POST create single resource *** //
 
 module.exports = router;
