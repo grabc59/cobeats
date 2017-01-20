@@ -27,5 +27,17 @@ router.get('/users/:id', (req, res, next) => {
 });
 
 // *** POST create single resource *** //
+router.post('/users', (req, res, next) => {
+  queries.add(req.body)
+  .then((userID) => {
+    return queries.getSingle(userID);
+  })
+  .then((user) => {
+    res.status(200).json(user);
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
 
 module.exports = router;

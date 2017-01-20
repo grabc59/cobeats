@@ -90,7 +90,7 @@ describe('API routes', () => {
         res.body.should.have.property('email');
         res.body.email.should.eql('newresource@cobeats.com');
         res.body.should.have.property('admin');
-        res.body.name.should.eql(false);
+        res.body.admin.should.eql(false);
         done();
       });
     });
