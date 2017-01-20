@@ -12,9 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : false }));
 
-app.get('/', (req, res, next) => {
-  res.send('Hello World! From coBeats');
-});
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
