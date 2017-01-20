@@ -10,8 +10,11 @@ const admin = require('./src/server/routes/admin');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res, next) => {
+  res.send('Hello world from coBeats!');
+});
 app.use('/admin', admin);
 
 // catch 404 and forward to error handler
@@ -48,3 +51,5 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`CoBeats is running on port ${port} ...`);
 });
+
+module.exports = app;

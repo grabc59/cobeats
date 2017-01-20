@@ -1,12 +1,10 @@
 'use strict';
 
-const database_name = 'cobeats';
-
 module.exports = {
 
   test: {
     client: 'pg',
-    connection: `postgresql://localhost/${database_name}_test`,
+    connection: 'postgres://localhost/cobeats_test',
     migrations : {
       directory: __dirname + '/src/server/db/migrations'
     },
@@ -16,8 +14,8 @@ module.exports = {
   },
 
   development: {
-    clinet: 'pg',
-    connection: `postgres://localhost/${database_name}`,
+    client: 'pg',
+    connection: 'postgres://localhost/cobeats',
     migrations : {
       directory: __dirname + '/src/server/db/migrations'
     },
@@ -27,7 +25,7 @@ module.exports = {
   },
 
   production: {
-    clinet: 'pg',
+    client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations : {
       directory: __dirname + '/src/server/db/migrations'

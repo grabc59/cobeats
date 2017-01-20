@@ -19,6 +19,7 @@ describe('API routes', () => {
       .get('/admin/users')
       .end((err, res) => {
         res.should.have.status(200);
+        done();
       });
     });
   });

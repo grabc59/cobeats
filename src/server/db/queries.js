@@ -2,6 +2,16 @@
 
 const knex = require('./knex');
 
+function users() {
+  return knex('users');
+}
+
 // *** queries *** //
 
-module.exports = {};
+function getAll() {
+  return users().select();
+}
+
+module.exports = {
+  getAll: getAll
+};

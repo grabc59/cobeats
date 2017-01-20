@@ -6,7 +6,13 @@ const queries = require('../db/queries');
 
 // *** GET all users *** //
 router.get('/users', (req, res, next) => {
-  res.send('Send all users back');
+  queries.getAll()
+  .then((users) => {
+    res.status(200).json(users);
+  })
+  .catch((error) => {
+    next(error);
+  });
 });
 
 module.exports = router;
