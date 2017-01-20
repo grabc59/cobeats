@@ -96,4 +96,28 @@ describe('API routes', () => {
     });
   });
 
+  describe('PUT /admin/users/:id', () => {
+    it('should update a single resource by id', (done) => {
+      chai.request(server)
+      .put('/admin/users/1')
+      .send({
+        name: 'Updated Resource',
+        email: 'updatedresource@cobeats.com',
+        admin: true
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.eql('Updated Resource');
+        res.body.should.have.property('email');
+        res.body.email.should.eql('Updated Resource');
+        res.body.should.have.property('admin');
+        res.body.admin.should.eql(true);
+        done();
+      });
+    });
+  });
+
 });
