@@ -112,7 +112,7 @@ describe('API routes', () => {
         res.body.should.have.property('name');
         res.body.name.should.eql('Updated Resource');
         res.body.should.have.property('email');
-        res.body.email.should.eql('Updated Resource');
+        res.body.email.should.eql('updatedresource@cobeats.com');
         res.body.should.have.property('admin');
         res.body.admin.should.eql(true);
         done();
