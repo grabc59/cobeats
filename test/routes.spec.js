@@ -12,7 +12,7 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('API routes', () => {
-  
+
   beforeEach((done) => {
     knex.migrate.rollback()
     .then(() => {
@@ -39,6 +39,32 @@ describe('API routes', () => {
       .get('/admin/users')
       .end((err, res) => {
         res.should.have.status(200);
+        res.body.should.be.a('array');
+        res.body.length.should.eql(5);
+        res.body[0].should.have.property('name');
+        res.body[0].name.should.eql('Matt Gordon');
+        res.body[0].should.have.property('email');
+        res.body[0].email.should.eql('mattgordon@cobeats.com');
+        res.body[0].should.have.property('admin');
+        res.body[0].admin.should.eql(true);
+        done();
+      });
+    });
+  });
+
+  describe('GET /admin/users/:id', () => {
+    it('should return one user', (done) => {
+      chai.request(server)
+      .get('/admin/users/1')
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.eql('Matt Gordon');
+        res.body.should.have.property('email');
+        res.body.email.should.eql('mattgordon@cobeats.com');
+        res.body.should.have.property('admin');
+        res.body.admin.should.eql(true);
         done();
       });
     });
