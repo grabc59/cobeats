@@ -118,6 +118,22 @@ describe('API routes', () => {
         done();
       });
     });
+    it('should NOT update a lead if the id field is part of the request', (done) => {
+      chai.request(server)
+      .put('/admin/users/1')
+      .send({
+        id: 20,
+        name: 'Larry Beats'
+      })
+      .end((err, res) => {
+        res.should.have.status(422);
+        res.should.be.json;  // jshint ignore:line
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
+        res.body.error.should.eql('You cannot update the id field');
+        done();
+      });
+    });
   });
 
 });
