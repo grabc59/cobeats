@@ -5,7 +5,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 
-const admin = require('./routes/admin');
+const admin = require('./src/server/routes/admin');
 
 const app = express();
 
