@@ -59,4 +59,21 @@ router.put('/users/:id', (req, res, next) => {
   });
 });
 
+// *** DELETE a single resource *** //
+router.delete('/users/:id', (req, res, next) => {
+  queries.getSingle(req.params.id)
+  .then((user) => {
+    queries.deleteResource(req.params.id)
+    .then(() => {
+      res.status(200).json(user);
+    })
+    .catch((error) => {
+      next(error);
+    });
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
 module.exports = router;

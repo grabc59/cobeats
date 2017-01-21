@@ -149,7 +149,7 @@ describe('API routes', () => {
         response.body.should.have.property('email');
         response.body.email.should.eql('mattgordon@cobeats.com');
         response.body.should.have.property('admin');
-        response.body.phone.should.eql(true);
+        response.body.admin.should.eql(true);
         chai.request(server)
         .get('/admin/users')
         .end((err, res) => {

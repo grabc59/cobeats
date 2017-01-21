@@ -24,9 +24,14 @@ function update(userID, updates) {
   return users().where('id', parseInt(userID)).update(updates);
 }
 
+function deleteResource(userID) {
+  return users().where('id', parseInt(userID)).del();
+}
+
 module.exports = {
   getAll: getAll,
   getSingle: getSingle,
   add: add,
-  update: update
+  update: update,
+  deleteResource: deleteResource
 };
