@@ -136,4 +136,36 @@ describe('API routes', () => {
     });
   });
 
+  describe('DELETE /admin/users/:id', function() {
+    it('should delete a resource', (done) => {
+      chai.request(server)
+      .delete('/admin/users/1')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json; // jshint ignore:line
+        response.body.should.be.a('object');
+        response.body.should.have.property('name');
+        response.body.name.should.eql('Matt Gordon');
+        response.body.should.have.property('email');
+        response.body.email.should.eql('mattgordon@cobeats.com');
+        response.body.should.have.property('admin');
+        response.body.phone.should.eql(true);
+        chai.request(server)
+        .get('/admin/users')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json;  // jshint ignore:line
+          res.body.should.be.a('array');
+          res.body.length.should.equal(4);
+          res.body[0].should.have.property('name');
+          res.body[0].name.should.eql('Ari Clark');
+          res.body[0].should.have.property('email');
+          res.body[0].email.should.eql('ariclark@cobeats.com');
+          res.body[0].should.have.property('admin');
+          res.body[0].admin.should.eql(false);
+          done();
+        });
+      });
+    });
+  });
 });
