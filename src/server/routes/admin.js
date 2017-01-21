@@ -5,10 +5,10 @@ const router = express.Router();
 const queries = require('../db/queries');
 
 // *** GET all resources *** //
-router.get('/users', (req, res, next) => {
+router.get('/resources', (req, res, next) => {
   queries.getAll()
-  .then((users) => {
-    res.status(200).json(users);
+  .then((resources) => {
+    res.status(200).json(resources);
   })
   .catch((error) => {
     next(error);
@@ -16,10 +16,10 @@ router.get('/users', (req, res, next) => {
 });
 
 // *** GET single resource by id *** //
-router.get('/users/:id', (req, res, next) => {
+router.get('/resources/:id', (req, res, next) => {
   queries.getSingle(req.params.id)
-  .then((user) => {
-    res.status(200).json(user);
+  .then((resource) => {
+    res.status(200).json(resource);
   })
   .catch((error) => {
     next(error);
@@ -27,13 +27,13 @@ router.get('/users/:id', (req, res, next) => {
 });
 
 // *** POST create single resource *** //
-router.post('/users', (req, res, next) => {
+router.post('/resources', (req, res, next) => {
   queries.add(req.body)
-  .then((userID) => {
-    return queries.getSingle(userID);
+  .then((resourceID) => {
+    return queries.getSingle(resourceID);
   })
-  .then((user) => {
-    res.status(200).json(user);
+  .then((resource) => {
+    res.status(200).json(resource);
   })
   .catch((error) => {
     next(error);
@@ -41,7 +41,7 @@ router.post('/users', (req, res, next) => {
 });
 
 // *** PUT update a single resource ***//
-router.put('/users/:id', (req, res, next) => {
+router.put('/resources/:id', (req, res, next) => {
   if (req.body.hasOwnProperty('id')) {
     return res.status(422).json({
       error: 'You cannot update the id field'
@@ -51,8 +51,8 @@ router.put('/users/:id', (req, res, next) => {
   .then(() => {
     return queries.getSingle(req.params.id);
   })
-  .then((user) => {
-    res.status(200).json(user);
+  .then((resource) => {
+    res.status(200).json(resource);
   })
   .catch((error) => {
     next(error);
@@ -60,12 +60,12 @@ router.put('/users/:id', (req, res, next) => {
 });
 
 // *** DELETE a single resource *** //
-router.delete('/users/:id', (req, res, next) => {
+router.delete('/resources/:id', (req, res, next) => {
   queries.getSingle(req.params.id)
-  .then((user) => {
+  .then((resource) => {
     queries.deleteResource(req.params.id)
     .then(() => {
-      res.status(200).json(user);
+      res.status(200).json(resource);
     })
     .catch((error) => {
       next(error);
