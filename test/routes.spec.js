@@ -118,7 +118,7 @@ describe('API routes', () => {
         done();
       });
     });
-    it('should NOT update a lead if the id field is part of the request', (done) => {
+    it('should NOT update a resource if the id field is part of the request', (done) => {
       chai.request(server)
       .put('/admin/users/1')
       .send({

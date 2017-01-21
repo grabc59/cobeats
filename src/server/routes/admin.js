@@ -42,6 +42,11 @@ router.post('/users', (req, res, next) => {
 
 // *** PUT update a single resource ***//
 router.put('/users/:id', (req, res, next) => {
+  if (req.body.hasOwnProperty('id')) {
+    return res.status(422).json({
+      error: 'You cannot update the id field'
+    });
+  }
   queries.update(req.params.id, req.body)
   .then(() => {
     return queries.getSingle(req.params.id);
