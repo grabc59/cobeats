@@ -2,30 +2,30 @@
 
 const knex = require('./knex');
 
-function users() {
-  return knex('users');
+function resources() {
+  return knex('resources');
 }
 
 // *** queries *** //
 
 function getAll() {
-  return users().select();
+  return resources().select();
 }
 
-function getSingle(userID) {
-  return users().where('id', parseInt(userID)).first();
+function getSingle(resourceID) {
+  return resources().where('id', parseInt(resourceID)).first();
 }
 
-function add(user) {
-  return users().insert(user, 'id');
+function add(resource) {
+  return resources().insert(resource, 'id');
 }
 
-function update(userID, updates) {
-  return users().where('id', parseInt(userID)).update(updates);
+function update(resourceID, updates) {
+  return resources().where('id', parseInt(resourceID)).update(updates);
 }
 
-function deleteResource(userID) {
-  return users().where('id', parseInt(userID)).del();
+function deleteResource(resourceID) {
+  return resources().where('id', parseInt(resourceID)).del();
 }
 
 module.exports = {
