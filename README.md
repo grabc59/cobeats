@@ -4,8 +4,10 @@ Q3 Project
 
 Clone this repo
 
-```yarn install```
+```yarn install (npm install)```
 
 run
 
-```yarn test```
+```yarn test (npm test)``` 
+
+```yarn start (npm start)``` 
