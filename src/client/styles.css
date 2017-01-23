@@ -1,15 +1,7 @@
-.flex {
+.app-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.stepper {
-  height: 100vh;
-  border: 1px solid #000;
-}
-
-.chat {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-basis: auto;
   border: 1px solid #000;
 }
