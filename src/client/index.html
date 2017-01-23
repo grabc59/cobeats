@@ -1,43 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>coBeats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Custom css -->
+  <link rel="stylesheet" href="styles.css">
+
   </head>
   <body>
-    <h1>Hello World INDEX!</h1>
     
-  <!-- Start Lissajous source files -->
-  <script src="js/lissajous/src/vendor/bufferLoader.js"></script>
+    <!-- main app -->
+    <stepper></stepper>
 
-  <script src="js/lissajous/src/context.js"></script>
-  <script src="js/lissajous/src/track.core.js"></script>
-  <script src="js/lissajous/src/track.events.js"></script>
-  <script src="js/lissajous/src/track.api.js"></script>
-  <script src="js/lissajous/src/track.oscillator.js"></script>
-  <script src="js/lissajous/src/track.sampler.js"></script>
-  <script src="js/lissajous/src/track.envelope.js"></script>
-  <script src="js/lissajous/src/track.scheduler.js"></script>
-  <script src="js/lissajous/src/track.sequencer.js"></script>
-  <script src="js/lissajous/src/track.filter.js"></script>
-  <script src="js/lissajous/src/track.record.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 
-  <script src="js/lissajous/src/track.effects.delay.js"></script>
-  <script src="js/lissajous/src/track.effects.chorus.js"></script>
-  <script src="js/lissajous/src/track.effects.tremolo.js"></script>
-  <script src="js/lissajous/src/track.effects.filter.js"></script>
-  <script src="js/lissajous/src/track.effects.reverb.js"></script>
-  <script src="js/lissajous/src/track.effects.distortion.js"></script>
+    <!-- Start Lissajous source files -->
+    <script src="js/lissajous/src/vendor/bufferLoader.js"></script>
 
-  <script src="js/lissajous/src/group.js"></script>
-  <script src="js/lissajous/src/generators.js"></script>
+    <script src="js/lissajous/src/context.js"></script>
+    <script src="js/lissajous/src/track.core.js"></script>
+    <script src="js/lissajous/src/track.events.js"></script>
+    <script src="js/lissajous/src/track.api.js"></script>
+    <script src="js/lissajous/src/track.oscillator.js"></script>
+    <script src="js/lissajous/src/track.sampler.js"></script>
+    <script src="js/lissajous/src/track.envelope.js"></script>
+    <script src="js/lissajous/src/track.scheduler.js"></script>
+    <script src="js/lissajous/src/track.sequencer.js"></script>
+    <script src="js/lissajous/src/track.filter.js"></script>
+    <script src="js/lissajous/src/track.record.js"></script>
 
-  <script src="js/lissajous/src/vendor/tuna.js"></script>
+    <script src="js/lissajous/src/track.effects.delay.js"></script>
+    <script src="js/lissajous/src/track.effects.chorus.js"></script>
+    <script src="js/lissajous/src/track.effects.tremolo.js"></script>
+    <script src="js/lissajous/src/track.effects.filter.js"></script>
+    <script src="js/lissajous/src/track.effects.reverb.js"></script>
+    <script src="js/lissajous/src/track.effects.distortion.js"></script>
 
-  <script src="js/lissajous/src/vendor/recorder.js"></script>
+    <script src="js/lissajous/src/group.js"></script>
+    <script src="js/lissajous/src/generators.js"></script>
 
-  <script src="js/lissajous/extras.js"></script>
-  <script src="js/lissajous/drag-and-drop.js"></script>
-  <!-- End Lissajous source files -->
+    <script src="js/lissajous/src/vendor/tuna.js"></script>
+
+    <script src="js/lissajous/src/vendor/recorder.js"></script>
+
+    <script src="js/lissajous/extras.js"></script>
+    <script src="js/lissajous/drag-and-drop.js"></script>
+    <!-- End Lissajous source files -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Init -->
+    <script type="text/javascript" src="./app.module.js"></script>
+
+    <script type="text/javascript" src="./stepper/stepper.component.js"></script>
   </body>
 </html>
