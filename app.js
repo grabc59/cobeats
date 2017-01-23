@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -9,11 +10,14 @@ const admin = require('./src/server/routes/admin');
 
 const app = express();
 
+app.set('views', path.join(__dirname, 'src/client'));
+app.use(express.static(path.join(__dirname, 'src/client')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res, next) => {
-  res.send('Hello world from coBeats!');
+  res.send('src/client/index.html');
 });
 app.use('/admin', admin);
 
