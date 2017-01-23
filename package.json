@@ -1,7 +1,7 @@
 {
   "name": "cobeats",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "main.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "NODE_ENV=test mocha"
