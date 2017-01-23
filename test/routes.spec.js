@@ -4,7 +4,7 @@ process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const server = require('../src/server/app');
+const server = require('../app');
 const knex = require('../src/server/db/knex');
 
 const should = chai.should();
@@ -33,10 +33,10 @@ describe('API routes', () => {
     });
   });
 
-  describe('GET /admin/resources', () => {
-    it('should return all resources', (done) => {
+  describe('GET /admin/users', () => {
+    it('should return all users', (done) => {
       chai.request(server)
-      .get('/admin/resources')
+      .get('/admin/users')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
@@ -53,10 +53,10 @@ describe('API routes', () => {
     });
   });
 
-  describe('GET /admin/resources/:id', () => {
+  describe('GET /admin/users/:id', () => {
     it('should return one resource by id', (done) => {
       chai.request(server)
-      .get('/admin/resources/1')
+      .get('/admin/users/1')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
@@ -72,10 +72,10 @@ describe('API routes', () => {
     });
   });
 
-  describe('POST /admin/resources', () => {
+  describe('POST /admin/users', () => {
     it('should create a resource', (done) => {
       chai.request(server)
-      .post('/admin/resources')
+      .post('/admin/users')
       .send({
         name: 'New Resource',
         email: 'newresource@cobeats.com',
@@ -96,10 +96,10 @@ describe('API routes', () => {
     });
   });
 
-  describe('PUT /admin/resources/:id', () => {
+  describe('PUT /admin/users/:id', () => {
     it('should update a single resource by id', (done) => {
       chai.request(server)
-      .put('/admin/resources/1')
+      .put('/admin/users/1')
       .send({
         name: 'Updated Resource',
         email: 'updatedresource@cobeats.com',
@@ -120,7 +120,7 @@ describe('API routes', () => {
     });
     it('should NOT update a resource if the id field is part of the request', (done) => {
       chai.request(server)
-      .put('/admin/resources/1')
+      .put('/admin/users/1')
       .send({
         id: 20,
         name: 'Larry Beats'
@@ -136,10 +136,10 @@ describe('API routes', () => {
     });
   });
 
-  describe('DELETE /admin/resources/:id', function() {
+  describe('DELETE /admin/users/:id', function() {
     it('should delete a resource', (done) => {
       chai.request(server)
-      .delete('/admin/resources/1')
+      .delete('/admin/users/1')
       .end((error, response) => {
         response.should.have.status(200);
         response.should.be.json; // jshint ignore:line
@@ -151,7 +151,7 @@ describe('API routes', () => {
         response.body.should.have.property('admin');
         response.body.admin.should.eql(true);
         chai.request(server)
-        .get('/admin/resources')
+        .get('/admin/users')
         .end((err, res) => {
           res.should.have.status(200);
           res.should.be.json;  // jshint ignore:line

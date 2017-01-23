@@ -4,11 +4,11 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../db/queries');
 
-// *** GET all resources *** //
-router.get('/resources', (req, res, next) => {
+// *** GET all users *** //
+router.get('/users', (req, res, next) => {
   queries.getAll()
-  .then((resources) => {
-    res.status(200).json(resources);
+  .then((users) => {
+    res.status(200).json(users);
   })
   .catch((error) => {
     next(error);
@@ -16,7 +16,7 @@ router.get('/resources', (req, res, next) => {
 });
 
 // *** GET single resource by id *** //
-router.get('/resources/:id', (req, res, next) => {
+router.get('/users/:id', (req, res, next) => {
   queries.getSingle(req.params.id)
   .then((resource) => {
     res.status(200).json(resource);
@@ -27,7 +27,7 @@ router.get('/resources/:id', (req, res, next) => {
 });
 
 // *** POST create single resource *** //
-router.post('/resources', (req, res, next) => {
+router.post('/users', (req, res, next) => {
   queries.add(req.body)
   .then((resourceID) => {
     return queries.getSingle(resourceID);
@@ -41,7 +41,7 @@ router.post('/resources', (req, res, next) => {
 });
 
 // *** PUT update a single resource ***//
-router.put('/resources/:id', (req, res, next) => {
+router.put('/users/:id', (req, res, next) => {
   if (req.body.hasOwnProperty('id')) {
     return res.status(422).json({
       error: 'You cannot update the id field'
@@ -60,7 +60,7 @@ router.put('/resources/:id', (req, res, next) => {
 });
 
 // *** DELETE a single resource *** //
-router.delete('/resources/:id', (req, res, next) => {
+router.delete('/users/:id', (req, res, next) => {
   queries.getSingle(req.params.id)
   .then((resource) => {
     queries.deleteResource(req.params.id)

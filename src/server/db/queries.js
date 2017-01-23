@@ -2,31 +2,53 @@
 
 const knex = require('./knex');
 
-function resources() {
-  return knex('resources');
+function users() {
+  return knex('users');
 }
 
-// *** queries *** //
+// *** user queries *** //
 
 function getAll() {
-  return resources().select();
+  return users().select();
 }
 
 function getSingle(resourceID) {
-  return resources().where('id', parseInt(resourceID)).first();
+  return users().where('id', parseInt(resourceID)).first();
 }
 
 function add(resource) {
-  return resources().insert(resource, 'id');
+  return users().insert(resource, 'id');
 }
 
 function update(resourceID, updates) {
-  return resources().where('id', parseInt(resourceID)).update(updates);
+  return users().where('id', parseInt(resourceID)).update(updates);
 }
 
 function deleteResource(resourceID) {
-  return resources().where('id', parseInt(resourceID)).del();
+  return users().where('id', parseInt(resourceID)).del();
 }
+
+// // *** message queries *** //
+//
+// function getAll() {
+//   return users().select();
+// }
+//
+// function getSingle(resourceID) {
+//   return users().where('id', parseInt(resourceID)).first();
+// }
+//
+// function add(resource) {
+//   return users().insert(resource, 'id');
+// }
+//
+// function update(resourceID, updates) {
+//   return users().where('id', parseInt(resourceID)).update(updates);
+// }
+//
+// function deleteResource(resourceID) {
+//   return users().where('id', parseInt(resourceID)).del();
+// }
 
 module.exports = {
   getAll: getAll,
