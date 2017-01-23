@@ -2,9 +2,9 @@
   'use strict';
   angular
     .module('app')
-    .component('stepper', {
+    .component('sample', {
       controller: StepperController,
-      templateUrl: 'stepper/stepper.template.html'
+      templateUrl: 'sample/sample.template.html'
     })
     function StepperController() {
       const vm = this;

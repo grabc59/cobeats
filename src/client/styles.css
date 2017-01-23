@@ -1,7 +1,23 @@
+.border {
+  border: 1px solid #000;
+}
+
 .app-container {
+  height: 100vh;
+}
+
+.flex {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-basis: auto;
-  border: 1px solid #000;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
