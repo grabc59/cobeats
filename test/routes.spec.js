@@ -184,7 +184,7 @@ describe('API routes', () => {
     });
 
     describe('PUT /messages/:id', () => {
-      it('should update a single user by id', (done) => {
+      it('should update a single message by id', (done) => {
         chai.request(server)
         .put('/messages/1')
         .send({
