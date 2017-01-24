@@ -1,5 +1,7 @@
+
 function track() {
   // add self to the scheduler, don't do anything else.
+
   var self = this;
   clock.addTrack(self);
 

@@ -41,3 +41,11 @@
   padding-bottom: 3%;
 
 }
+
+.current {
+  border: 1px solid;
+  background: rgba(255, 0, 0, 0.5);
+  width: 5%;
+  height: 0;
+  padding-bottom: 3%;
+}

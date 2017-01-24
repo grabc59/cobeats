@@ -1,3 +1,4 @@
+
 var AudioContext = (window.AudioContext ||
   window.webkitAudioContext ||
   window.mozAudioContext ||
@@ -7,7 +8,9 @@ var AudioContext = (window.AudioContext ||
 var context = new AudioContext();
 
 function TimeSingleton(){
+
   var self = this;
+  self.beatsArray
   self.playing = false;
   self.tracks = [];
   self.groups = [];
@@ -33,7 +36,6 @@ function TimeSingleton(){
   };
 
   self.schedule = function() {
-
     // is there a note coming up before the next?
     while ( self.nexttick < context.currentTime + self.scheduleahead ) {
       // loop through the tracks & trigger them if they are waiting
@@ -41,6 +43,8 @@ function TimeSingleton(){
         // hit the schedule callback for tracks
         for(var j = 0; j < self.tracks[i]._schedulers.length; j++) {
           self.tracks[i]._schedulers[j].tick(self.nexttick);
+
+
         }
       }
       // now loop through groups
@@ -114,10 +118,9 @@ function loadSounds(filenames, cb) {
 
 
 // go forth
-
 var clock = new TimeSingleton();
 var master = new Master();
 
 clock.start();
-console.log('Lissajous has started up.');
-console.log('If you\'re new here, try making a new track: t = new track().');
+// console.log('Lissajous has started up.');
+// console.log('If you\'re new here, try making a new track: t = new track().');
