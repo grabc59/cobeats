@@ -24,7 +24,7 @@
         localStorage.username = username;
         // send a post to the users table
         // format the username like an object (using es6) so it will be stringified
-        $http.post('users-route/', {username})
+        $http.post('/users', {username})
           .then(function (response) {
             // vm.postResponse = response.data;
             $state.go('main');
