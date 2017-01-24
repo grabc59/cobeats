@@ -21,3 +21,23 @@
   flex-wrap: wrap;
   align-items: stretch;
 }
+
+.sequence{
+  /*border: 1px solid;
+  display: block;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  background-color: #281E1E;
+  align-items: center;
+}
+
+.beat{
+  border: 1px solid;
+  background-color: #bbb;
+  width: 5%;
+  height: 0;
+  padding-bottom: 3%;
+
+}

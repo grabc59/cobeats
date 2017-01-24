@@ -12,21 +12,39 @@
 
     function onInit() {
       vm.tracks = [ {
-        0: [ 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
+        beats: [ 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 ],
+
       } ]
-      var testSamples = [];
+      // var testSilence = [];
+      // loadSounds( [
+      //     '../../samples/silence.wav'
+      //   ],
+      //   function( list ) {
+      //     testSilence = list;
+      //   } );
+      var testLead = [];
       loadSounds( [
-          '../../samples/silence.wav',
-          '../../samples/snare.wav'
+          '../../samples/lead.wav'
         ],
         function( list ) {
-          testSamples = list;
+          testLead = list;
         } );
       var track0 = new track()
-      track0.sample( testSamples )
-      track0.beat( 1 )
-      track0.ssq( vm.tracks[ 0 ][ 0 ] )
+      track0.sample( testLead )
+      track0.beat( 4 ).notes( walk.major(64))
+      track0.notes( walk.minor(63, 3))
+      // track0.vol( [ 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 ] )
+      track0.start();
+      track0.currentTime + track0.lookaheadTime
 
+    function drawPlayhead(currentIndex) {
+    var previousIndex = (currentIndex + loop_length - 1) % loop_length;
+    var $newRows = $('.column_' + currentIndex);
+    var $oldRows = $('.column_' + previousIndex);
+
+    $newRows.addClass("playing");
+    $oldRows.removeClass("playing");
+}
 
 
     }
