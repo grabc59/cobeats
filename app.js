@@ -6,7 +6,8 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 
-const admin = require('./src/server/routes/admin');
+// const admin = require('./src/server/routes/admin');
+const usersRoute = require('./src/server/routes/users-route.js')
 
 const app = express();
 
@@ -19,7 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res, next) => {
   res.send('src/client/index.html');
 });
-app.use('/admin', admin);
+// app.use('/admin', admin);
+app.use('/users-route', usersRoute);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
