@@ -139,7 +139,7 @@ describe('API routes', () => {
   });
 
   describe('Message Routes', () => {
-    
+
     describe('GET /messages', () => {
       it('should return all messages', (done) => {
         chai.request(server)
@@ -197,7 +197,7 @@ describe('API routes', () => {
           done();
         });
       });
-      it('should NOT update a user if the id field is part of the request', (done) => {
+      it('should NOT update a message if the id field is part of the request', (done) => {
         chai.request(server)
         .put('/messages/1')
         .send({
