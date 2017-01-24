@@ -33,8 +33,8 @@
           testLead = list;
         } );
       var track0 = new track()
-      track0.sample( testLead )
-      track0.beat( 4 )
+      // track0.sample( testLead )
+      track0.beat( 3 )
       // .notes( walk.major(64))
       // track0.notes( walk.minor(63, 3))
       var lead = track0.vol( [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] )
