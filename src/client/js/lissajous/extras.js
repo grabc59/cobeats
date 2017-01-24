@@ -4,15 +4,15 @@
 
 
 // chorus and tremolo use tuna, so we should load it here
-var tuna = new Tuna(context);
+var tuna = new Tuna( context );
 
 
 // _rint is a random integer generator, useful for
 // creating random melodies on the fly.
-function _rint(length, min, max) {
+function _rint( length, min, max ) {
   var numbers = [];
-  for(var i = 0; i < length; i++) {
-    numbers.push( Math.floor(Math.random() * (max - min) + min) );
+  for ( var i = 0; i < length; i++ ) {
+    numbers.push( Math.floor( Math.random() * ( max - min ) + min ) );
   }
   return numbers;
 }
@@ -25,13 +25,13 @@ function _rint(length, min, max) {
 // the Lissajous API will combine multiple array arguments
 // into a single array automatically, allowing you to do things
 // like track.beat( _m(4, 8), _m(2, 16) )
-function _m(value, iterations) {
+function _m( value, iterations ) {
   var values = [];
-  for(var i = 0; i < iterations; i++) {
-    if(Array.isArray(value)) {
-      values = values.concat(value);
+  for ( var i = 0; i < iterations; i++ ) {
+    if ( Array.isArray( value ) ) {
+      values = values.concat( value );
     } else {
-      values.push(value);
+      values.push( value );
     }
   }
   return values;
@@ -39,18 +39,14 @@ function _m(value, iterations) {
 
 // Here's an example of how to load samples into an array.
 
-// var pno = [];
-// loadSounds([
-//     './samples/pianosong/piano1.wav',
-//     './samples/pianosong/pianobass.wav',
-//     './samples/pianosong/pianodoodle.wav',
-//     './samples/pianosong/bass.wav',
-//     './samples/pianosong/synth.wav',
-//     './samples/pianosong/perc.wav'
-//   ],
-//   function(list) {
-//     pno = list;
-// });
+var testSamples = [];
+loadSounds( [
+    './samples/silence.wav',
+    './samples/snare.wav',
+  ],
+  function( list ) {
+    testSamples = list;
+  } );
 
 // var drums = [];
 // loadSounds([
