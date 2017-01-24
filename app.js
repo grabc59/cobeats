@@ -5,11 +5,12 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+const app = express();
 
 const users = require('./src/server/routes/users');
 const messages = require('./src/server/routes/messages');
 
-const app = express();
+app.use(logger('short'));
 
 app.set('views', path.join(__dirname, 'src/client'));
 
