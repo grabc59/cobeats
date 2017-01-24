@@ -27,7 +27,7 @@
         $http.post('users-route/', {username: username})
           .then(function (response) {
             // vm.postResponse = response.data;
-            $state.go('houseShow', {houseId: vm.houses[vm.houses.length -1].id })
+            $state.go('main');
           });
       };
 
