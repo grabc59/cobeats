@@ -9,10 +9,17 @@
 
     controller.$inject = ['$http'];
 
+    ////////////////////////////
+    /////// CONTROLLER
+    ////////////////////////////
     function controller($http) {
       const vm = this;
       console.log('user log in component controller log');
 
+
+      ////////////////////////////
+      /////// SUBMIT USERNAME
+      ////////////////////////////
       vm.submitUsername = function(username) {
         localStorage.username = username;
         // send a post to the users table
