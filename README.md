@@ -21,3 +21,5 @@ Clone this repo, follow the steps to configure
 ```yarn test (npm test)```
 
 ```yarn start (npm start)``` 
+
+navigate to http://localhost:3000/
