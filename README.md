@@ -8,6 +8,6 @@ Clone this repo
 
 run
 
-```yarn test (npm test)``` 
+```yarn test (npm test)```
 
 ```yarn start (npm start)``` 
