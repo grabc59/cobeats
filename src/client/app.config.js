@@ -11,9 +11,9 @@
 
     $stateProvider
       .state({
-        name: 'home',
+        name: 'splash',
         url: '/',
-        component: 'app',
+        component: 'splash',
       });
   }
 
