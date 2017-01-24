@@ -48,50 +48,6 @@ router.post('/', (req, res, next) => {
       next(err);
     });
 });
-//
-// router.patch('/:id', authorize, function(req, res, next) {
-//   knex('users')
-//     .max('id')
-//     .then((result) => {
-//       if (req.body.password) {
-//         if (req.params.id <= result[0].max && req.params.id > 0 && !isNaN(req.params.id)) {
-//           return knex('users')
-//             .where({ id: req.params.id })
-//             .first()
-//             .update({
-//               username: req.body.username,
-//               password: bcrypt.hashSync(req.body.password, 8),
-//               email: req.body.email
-//             }, '*')
-//             .then((result) => {
-//               //TODO: don't send password back on a successfull patch
-//               res.send(result[0]);
-//             })
-//             .catch((err) => {
-//               next(err);
-//             });
-//         } else {
-//           next(boom.create(404, 'Not Found'));
-//           return;
-//         }
-//       } else {
-//         next(boom.create(404, 'please specify a password'));
-//         return;
-//       }
-//     });
-// });
-//
-// router.delete('/:username', authorize, function(req, res, next) {
-//   knex('users')
-//     .where({ username: req.params.username })
-//     .del()
-//     .then(function() {
-//       res.sendStatus(200);
-//     })
-//     .catch(function(err) {
-//       next(err);
-//     });
-// });
-//
+
 
 module.exports = router;
