@@ -58,7 +58,7 @@ function TimeSingleton(){
   };
 
   self.noteLength = function() {
-    return ( 60.0 / self.tempo ) / (self.bpmResolution / 4);
+    return ( 120.0 / self.tempo ) / (self.bpmResolution / 4);
   };
 
   self.noteLengthToHz = function(interval, modifier) {
