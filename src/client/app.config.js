@@ -14,7 +14,12 @@
         name: 'splash',
         url: '/',
         component: 'splash',
-      });
+      })
+      .state({
+        name: 'main',
+        url: '/main',
+        component: 'main'
+      })
   }
 
 }());
