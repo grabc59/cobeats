@@ -13,7 +13,6 @@
       const vm = this;
       console.log('user log in component controller log');
 
-
       vm.submitUsername = function(username) {
         // console.log('username: 'username);
 
@@ -25,9 +24,9 @@
         $http.post('users-route/', {username: username})
           .then(function (response) {
             vm.postResponse = response.data;
-            console.log('success');
+            // console.log('success');
           });
+      };
 
-      }
     }
 }());
