@@ -3,21 +3,6 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
-// const boom = require('boom');
-// const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
-// const privateKey = 'my_awesome_cookie_signing_key';
-
-// const authorize = function(req, res, next) {
-//   const token = req.cookies.token;
-//   jwt.verify(token, privateKey, (err, decoded) => {
-//     if (err) {
-//       return res.redirect('/signin.html');
-//     }
-//     req.token = decoded;
-//     next();
-//   });
-// };
 
 router.get('/', function(req, res, next) {
   knex('users')
@@ -29,6 +14,7 @@ router.get('/', function(req, res, next) {
       next(err);
     });
 });
+
 //
 // router.get('/:username', authorize, function(req, res, next) {
 //   knex('users')
@@ -48,8 +34,10 @@ router.get('/', function(req, res, next) {
 // });
 //
 //
+
 router.post('/', (req, res, next) => {
-  knex('users')
+  console.log(req.body);
+  return knex('users')
     .insert({
       username: req.body.username,
     })
