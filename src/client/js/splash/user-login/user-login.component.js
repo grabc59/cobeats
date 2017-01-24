@@ -9,5 +9,10 @@
     function controller() {
       const vm = this;
       console.log('user log in component controller log');
+
+      vm.submitUsername = function(username) {
+        // console.log('username: 'username);
+        localStorage.username = username;
+      }
     }
 }());

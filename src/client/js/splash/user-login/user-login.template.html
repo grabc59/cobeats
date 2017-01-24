@@ -1,8 +1,9 @@
 <h2>user-login component template</h2>
 <hr>
-<form>
+<form ng-submit="$ctrl.submitUsername($ctrl.username)">
   <div class="form-group">
     <label for="username">Howdy partner! What's your name?</label>
-    <input type="text" class="form-control" id="username" placeholder="Bob Sagget">
+    <input type="text" class="form-control" id="username" placeholder="Bob Sagget" ng-model="$ctrl.username">
   </div>
+  <button class="btn" type="submit">Submit</button>
 </form>
