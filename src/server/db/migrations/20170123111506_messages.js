@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments().notNullable();
     table.string('content');
     // user id of the message sender
-    table.integer('user_id').notNullable().references('users.id');
+    table.integer('user_id').notNullable().references('users.id').onDelete('CASCADE');
     // created_at, updated_at
     table.timestamps(true, true);
   });

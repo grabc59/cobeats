@@ -2,11 +2,11 @@
 
 const express = require('express');
 const router = express.Router();
-const queries = require('../db/queries');
+const userQueries = require('../db/usersQueries');
 
 // *** GET all users *** //
-router.get('/users', (req, res, next) => {
-  queries.getAll()
+router.get('/', (req, res, next) => {
+  userQueries.getAllUsers()
   .then((users) => {
     res.status(200).json(users);
   })
@@ -16,10 +16,10 @@ router.get('/users', (req, res, next) => {
 });
 
 // *** GET single resource by id *** //
-router.get('/users/:id', (req, res, next) => {
-  queries.getSingle(req.params.id)
-  .then((resource) => {
-    res.status(200).json(resource);
+router.get('/:id', (req, res, next) => {
+  userQueries.getSingleUsers(req.params.id)
+  .then((user) => {
+    res.status(200).json(user);
   })
   .catch((error) => {
     next(error);
@@ -27,13 +27,13 @@ router.get('/users/:id', (req, res, next) => {
 });
 
 // *** POST create single resource *** //
-router.post('/users', (req, res, next) => {
-  queries.add(req.body)
-  .then((resourceID) => {
-    return queries.getSingle(resourceID);
+router.post('/', (req, res, next) => {
+  userQueries.addUsers(req.body)
+  .then((userID) => {
+    return userQueries.getSingleUsers(userID);
   })
-  .then((resource) => {
-    res.status(200).json(resource);
+  .then((user) => {
+    res.status(200).json(user);
   })
   .catch((error) => {
     next(error);
@@ -41,39 +41,38 @@ router.post('/users', (req, res, next) => {
 });
 
 // *** PUT update a single resource ***//
-router.put('/users/:id', (req, res, next) => {
-  if (req.body.hasOwnProperty('id')) {
+router.put('/:id', (req, res, next) => {
+  if(req.body.hasOwnProperty('id')) {
     return res.status(422).json({
       error: 'You cannot update the id field'
     });
   }
-  queries.update(req.params.id, req.body)
-  .then(() => {
-    return queries.getSingle(req.params.id);
+  userQueries.updateUsers(req.params.id, req.body)
+  .then(function() {
+    return userQueries.getSingleUsers(req.params.id);
   })
-  .then((resource) => {
-    res.status(200).json(resource);
+  .then(function(show) {
+    res.status(200).json(show);
   })
-  .catch((error) => {
+  .catch(function(error) {
     next(error);
   });
 });
 
 // *** DELETE a single resource *** //
-router.delete('/users/:id', (req, res, next) => {
-  queries.getSingle(req.params.id)
-  .then((resource) => {
-    queries.deleteResource(req.params.id)
-    .then(() => {
-      res.status(200).json(resource);
-    })
-    .catch((error) => {
-      next(error);
-    });
-  })
-  .catch((error) => {
-    next(error);
-  });
+router.delete('/:id', (req, res, next) => {
+  userQueries.getSingleUsers(req.params.id)
+ .then(function(user) {
+   userQueries.deleteUsers(req.params.id)
+   .then(function() {
+     res.status(200).json(user);
+   })
+   .catch(function(error) {
+     next(error);
+   });
+ }).catch(function(error) {
+   next(error);
+ });
 });
 
 module.exports = router;
