@@ -43,8 +43,8 @@
         newMessage.user_id = vm.user_id;
         $http.post('/messages', newMessage)
           .then(function (response) {
+            vm.newMessage.content = "";
           });
-        vm.newMessage.content = "";
         // when a message is submitted, clear the 'typing' timeout
         // vm.clearTimeout(timeout);
         // vm.timeout = setTimeout(timeoutFunction, 0);
