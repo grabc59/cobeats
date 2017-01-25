@@ -4,7 +4,10 @@
     <div class="col-md-4" style="height: 100%">
         <div class="well">
             <h3>Online Users</h3>
-            <ul class="list-group" id="users"></ul>
+            <ul class="list-group" id="users">
+                <li ng-repeat="user in $ctrl.connected_users" class="list-group-item" ng-class="{active: user == $ctrl.current_user}">{{user}}
+                </li>
+            </ul>
         </div>
     </div>
     <div class="col-md-8">
