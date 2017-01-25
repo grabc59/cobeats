@@ -4,65 +4,51 @@
     .component( 'sequencer', {
       templateUrl: "js/sequencer/sequencer.template.html",
       controller: controller
-    });
-  function controller(){
+    } );
+
+  function controller() {
     const vm = this;
     vm.$onInit = onInit;
+    vm.activateBeat = activateBeat;
 
     function onInit() {
       vm.tracks = [ {
-        beats: [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+          beats: [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
 
-      } ]
-      var beatsArray = vm.tracks[0].beats
-      // var clock = new TimeSingleton(beatsArray)
-      console.log(clock);
-      // clock.start()
-      // var testSilence = [];
-      // loadSounds( [
-      //     '../../samples/silence.wav'
-      //   ],
-      //   function( list ) {
-      //     testSilence = list;
-      //   } );
-      var testLead = [];
-      loadSounds( [
-          '../../samples/lead.wav'
-        ],
-        function( list ) {
-          testLead = list;
-        } );
+        } ]
+        // var testLead = [];
+        // loadSounds( [
+        //     '../../samples/lead.wav'
+        //   ],
+        //   function( list ) {
+        //     testLead = list;
+        //   } );
       var track0 = new track()
-      // track0.sample( testLead )
-      track0.beat( 3 )
-      // .notes( walk.major(64))
-      // track0.notes( walk.minor(63, 3))
-      var lead = track0.vol( [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] )
+        // track0.sample( testLead )
+      track0.beat( 1 )
+      var lead = track0.vol( [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ] )
 
-      // track0.start();
-      track0.currentTime + track0.lookaheadTime
+      // NOTE: DOM manipulation is happening in lissajous/src/track.sequencer.js
 
-    function drawPlayhead(currentIndex) {
-    var previousIndex = (currentIndex + loop_length - 1) % loop_length;
-    var $newRows = $('.column_' + currentIndex);
-    var $oldRows = $('.column_' + previousIndex);
+      // clock.start();
 
-    $newRows.addClass("playing");
-    $oldRows.removeClass("playing");
+      //create a button track.core, context
+      //for visualization: create set interval
+      //create array of cells 0-15 and repeat
+      //button start interval time that console.logs
+      //dom elements that target arrray
 
-    let element = angular.element('#beat'+currentIndex).attr("class","active")
-}
+    }
 
-// clock.start();
-
-//create a button track.core, context
-//for visualization: create set interval
-//create array of cells 0-15 and repeat
-//button start interval time that console.logs
-//dom elements that target arrray
-
+    function activateBeat( beat ) {
+      console.log( "click" );
+      if ( beat === 1 ) {
+        beat = 0
+      } else {
+        beat = 1
+      }
     }
   }
   // console.log("clock",controller.onInit.clock);
   // module.exports = {clock: controller.onInit.clock};
-})();
+} )();
