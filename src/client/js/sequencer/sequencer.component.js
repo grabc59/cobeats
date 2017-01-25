@@ -8,11 +8,25 @@
   function controller(){
     const vm = this;
     vm.$onInit = onInit;
-
+    vm.click = function(index, e) {
+      console.log(e.target);
+      // if(vm.tracks[0].beats[index]) {
+      if(vm.sequence[index]) {
+        // vm.tracks[0].beats[index] = 0;
+        vm.sequence[index] = 0;
+            if(angular.element(document.getElementById(`${index}`)).hasClass('active')) {
+              angular.element(document.getElementById(`${index}`)).removeClass('active')
+            }
+      } else {
+        // vm.tracks[0].beats[index] = 1;
+        vm.sequence[index] = 1;
+        angular.element(document.getElementById(`${index}`)).addClass('active');
+      }
+    }
     function onInit() {
+      vm.sequence = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
       vm.tracks = [ {
-        beats: [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
-
+        beats: vm.sequence,
       } ]
       var beatsArray = vm.tracks[0].beats
       // var clock = new TimeSingleton(beatsArray)
@@ -37,7 +51,8 @@
       track0.beat( 3 )
       // .notes( walk.major(64))
       // track0.notes( walk.minor(63, 3))
-      var lead = track0.vol( [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] )
+      // var lead = track0.vol( vm.sequence )
+      var lead = track0.vol( vm.sequence )
 
       // track0.start();
       track0.currentTime + track0.lookaheadTime

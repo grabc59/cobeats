@@ -16,10 +16,7 @@ Sequencer.prototype.next = function(nextTick) {
   var self = this;
   if(self.pattern.length) {
     if(typeof self.pattern[self.currentStep] === 'function') {
-
       self.callback(self.pattern[self.currentStep](), nextTick);
-
-
     } else {
       self.callback(self.pattern[self.currentStep], nextTick);
       if (self.currentStep >= 1) {
