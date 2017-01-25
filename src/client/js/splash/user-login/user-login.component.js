@@ -7,15 +7,15 @@
       templateUrl: 'js/splash/user-login/user-login.template.html'
     });
 
-    controller.$inject = ['$http', '$state', 'socket'];
+    controller.$inject = ['$http', '$state'];
 
     ////////////////////////////
     /////// CONTROLLER
     ////////////////////////////
-    function controller($http, $state, socket) {
+    function controller($http, $state) {
       const vm = this;
       console.log('user log in component controller log');
-
+      
 
       ////////////////////////////
       /////// SUBMIT USERNAME
@@ -29,13 +29,6 @@
             // vm.postResponse = response.data;
             $state.go('main');
           });
-          
-        socket.emit('new user', username.val(), function(data) {
-            if (data) {
-                $userFormArea.hide();
-                $messageArea.show();
-            }
-        });
       };
 
     }
