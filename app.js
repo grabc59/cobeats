@@ -87,10 +87,11 @@ app.use((err, req, res, next) => {
 io.sockets.on('connection', function(socket) {
 
   //////////// NEW CONNECTION EVENT
-  connections.push(socket);
+  // connections.push(socket);
   // informational logs
-  console.log('Connected: %s sockets connected', connections.length);
-  console.log(connected_users);
+  console.log('yay socket connection event!')
+  // console.log('Connected: %s sockets connected', connections.length);
+  // console.log(connected_users);
 
   //////////// DISCONNECT EVENT
   socket.on('disconnect', function(data) {
@@ -111,8 +112,14 @@ io.sockets.on('connection', function(socket) {
   socket.on('new user', function(data, callback) {
     console.log('new user event! ', data)
     callback(true);
+
     socket.username = data;
     connected_users.push(socket.username);
+    connections.push(socket)
+
+    console.log('Connected: %s sockets connected', connections.length);
+    console.log(connected_users);
+    
     updateUsernames();
     io.sockets.emit('new user notification', socket.username);
   });

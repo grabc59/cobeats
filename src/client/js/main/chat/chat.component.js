@@ -18,10 +18,6 @@
       vm.$onInit = function() {
         // socket.emit('new user', username.val(), function(data) {
         socket.emit('new user', localStorage.username, function(data) {
-            // if (data) {
-            //     $userFormArea.hide();
-            //     $messageArea.show();
-            // }
             console.log('new user log: ', data, localStorage.username);
         });
       }
