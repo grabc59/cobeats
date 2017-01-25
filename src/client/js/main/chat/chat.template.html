@@ -12,7 +12,10 @@
     </div>
     <div class="col-md-8">
         <div id="messageHistory">
-
+            <div ng-repeat="message in $ctrl.messages" class="well">
+                <strong>{{message.user}}</strong>
+                {{message.content}}
+            </div>
         </div>
         <div id="updates"></div>
         <div class="chat" id="chat">
