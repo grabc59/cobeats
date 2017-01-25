@@ -39,11 +39,12 @@
       vm.sendMessage = function(newMessage) {
         // console.log(newMessage);
         socket.emit('send message', newMessage.content);
+
         newMessage.user_id = vm.user_id;
         $http.post('/messages', newMessage)
           .then(function (response) {
           });
-        vm.newMessage = "";
+        vm.newMessage.content = "";
         // when a message is submitted, clear the 'typing' timeout
         // vm.clearTimeout(timeout);
         // vm.timeout = setTimeout(timeoutFunction, 0);
@@ -68,6 +69,7 @@
       ////// NEW MESSAGE EVENT
       socket.on('new message', function(data) {
         console.log('new message: ', data)
+        vm.chatMessages.push(data);
 //       // add the message to the message box
 //       $messageHistory.append('<div class="well"><strong>' + data.user + '</strong>:' + data.msg + '</div>');
       });

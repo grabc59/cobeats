@@ -105,7 +105,7 @@ io.sockets.on('connection', function(socket) {
   //////////// SEND MESSAGE EVENT
   socket.on('send message', function(data) {
     console.log(data);
-    io.sockets.emit('new message', {msg: data, user: socket.username});
+    io.sockets.emit('new message', {content: data, username: socket.username});
   });
 
   //////////// NEW USER EVENT
