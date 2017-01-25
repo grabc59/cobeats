@@ -8,6 +8,5 @@
     })
     function controller() {
       const vm = this;
-      console.log('main component controller log');
     }
 }());

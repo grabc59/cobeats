@@ -3,10 +3,12 @@
 const express = require('express');
 const router = express.Router();
 const messagesQueries = require('../db/messagesQueries');
+const usersQueries = require('../db/usersQueries')
 
 // *** GET all messages *** //
 router.get('/', (req, res, next) => {
-  messagesQueries.getAllMessages()
+  // messagesQueries.getAllMessages() // vanilla query
+  messagesQueries.getAllMessagesWithUsernames() // query that resolves message sender usernames from the db
   .then((messages) => {
     res.status(200).json(messages);
   })
@@ -38,7 +40,7 @@ router.post('/', (req, res, next) => {
   .catch((error) => {
     next(error);
   });
-});
+})
 
 // *** PUT update a single message ***//
 router.put('/:id', (req, res, next) => {
