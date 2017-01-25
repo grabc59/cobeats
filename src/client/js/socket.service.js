@@ -3,7 +3,6 @@ angular
 .module('app')
 .factory('socket', function ($rootScope) {
   var socket = io.connect();
-  console.log('socket service log');
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {  
