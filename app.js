@@ -1,15 +1,32 @@
 'use strict';
 
+//////////////////////////////////////
+/////// SERVER REQUIREMENTS
+//////////////////////////////////////
 const path = require('path');
 const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
+const port = process.env.PORT || 3000;
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
-const app = express();
 
+//////////////////////////////////////
+/////// SOCKET VARIABLES
+//////////////////////////////////////
+var connected_users = [];
+var connections = [];
+
+//////////////////////////////////////
+/////// ROUTE FILE DECLARATIONS
+//////////////////////////////////////
 const users = require('./src/server/routes/users');
 const messages = require('./src/server/routes/messages');
 
+//////////////////////////////////////
+/////// MIDDLEWARE
+//////////////////////////////////////
 app.use(logger('short'));
 
 app.set('views', path.join(__dirname, 'src/client'));
@@ -21,6 +38,13 @@ app.use('/', express.static(path.join(__dirname, 'src/client')));
 app.use('/users', users);
 app.use('/messages', messages);
 
+//////// WILDCARD ROUTE
+  // allows user to refresh the page while on an angular route 
+  // example: refresh http://localhost:3000/main
+  // >> no matching express routes besides this wildcard
+  // >> server sends index.html 
+  // >> browser loads angular from the index
+  // >> angular reads the url and loads the right view
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {root: path.join(__dirname, 'src/client')});
 });
@@ -57,7 +81,64 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(port, () => {
+//////////////////////////////////////
+//////////      SOCKET SERVER
+//////////////////////////////////////
+io.sockets.on('connection', function(socket) {
+
+  //////////// NEW CONNECTION EVENT
+  // connections.push(socket);
+  // informational logs
+  console.log('yay socket connection event!')
+  // console.log('Connected: %s sockets connected', connections.length);
+  // console.log(connected_users);
+
+  //////////// DISCONNECT EVENT
+  socket.on('disconnect', function(data) {
+    if (!socket.username) return;
+    connected_users.splice(connected_users.indexOf(socket.username), 1);
+    updateUsernames();
+    connections.splice(connections.indexOf(socket),1);
+    console.log('disconnected: %s sockets connected', connections.length);
+  });
+
+  //////////// SEND MESSAGE EVENT
+  socket.on('send message', function(data) {
+    console.log(data);
+    io.sockets.emit('new message', {content: data, username: socket.username});
+  });
+
+  //////////// NEW USER EVENT
+  socket.on('new user', function(data, callback) {
+    console.log('new user event! ', data)
+    callback(true);
+
+    socket.username = data;
+    connected_users.push(socket.username);
+    connections.push(socket)
+
+    console.log('Connected: %s sockets connected', connections.length);
+    console.log(connected_users);
+    
+    updateUsernames();
+    io.sockets.emit('new user notification', socket.username);
+  });
+
+  //////////// GET USERNAMES
+  function updateUsernames() {
+    io.sockets.emit('get users', connected_users);
+  }
+
+  //////////// USER IS TYPING EVENT
+  socket.on("typing", function(data) {
+    io.sockets.emit('isTyping', {
+      isTyping: data,
+      person: socket.username,
+    });
+  });
+});
+
+server.listen(port, () => {
   console.log(`CoBeats is running on http://localhost:${port} ...`);
 });
 

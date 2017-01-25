@@ -15,6 +15,10 @@ function getAllUsers() {
 function getSingleUsers(userID) {
   return users().where('id', parseInt(userID)).first();
 }
+////// custom get single userID
+function getSingleUserIDByUsername(username) {
+  return users().where('username', username).first();
+}
 
 function addUsers(user) {
   return users().insert(user, 'id');
@@ -29,6 +33,7 @@ function deleteUsers(userID) {
 }
 
 module.exports = {
+  getSingleUserIDByUsername: getSingleUserIDByUsername,
   getAllUsers: getAllUsers,
   getSingleUsers: getSingleUsers,
   addUsers: addUsers,

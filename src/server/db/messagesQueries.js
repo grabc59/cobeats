@@ -12,11 +12,18 @@ function getAllMessages() {
   return messages().select();
 }
 
+function getAllMessagesWithUsernames() {
+  return messages()
+    .join('users', 'messages.user_id', '=', 'users.id') 
+    .select('messages.content', 'users.username', 'messages.created_at');
+}
+
 function getSingleMessage(messageID) {
   return messages().where('id', parseInt(messageID)).first();
 }
 
 function addMessage(message) {
+  console.log(message);
   return messages().insert(message, 'id');
 }
 
@@ -29,6 +36,7 @@ function deleteMessage(messageID) {
 }
 
 module.exports = {
+  getAllMessagesWithUsernames: getAllMessagesWithUsernames,
   getAllMessages: getAllMessages,
   getSingleMessage: getSingleMessage,
   addMessage: addMessage,
