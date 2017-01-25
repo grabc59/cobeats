@@ -17,7 +17,8 @@
 
       ////// INIT
       vm.$onInit = function() {
-        vm.current_user = localStorage.username
+        vm.current_user = localStorage.username;
+        vm.user_id = localStorage.user_id;
         vm.connected_users = [];
         socket.emit('new user', localStorage.username, function(data) {
             console.log('new user log: ', data, localStorage.username);
@@ -38,7 +39,7 @@
       vm.sendMessage = function(newMessage) {
         // console.log(newMessage);
         socket.emit('send message', newMessage.content);
-        newMessage.username = vm.current_user;
+        newMessage.user_id = vm.user_id;
         $http.post('/messages', newMessage)
           .then(function (response) {
           });

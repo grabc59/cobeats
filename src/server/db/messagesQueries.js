@@ -23,6 +23,7 @@ function getSingleMessage(messageID) {
 }
 
 function addMessage(message) {
+  console.log(message);
   return messages().insert(message, 'id');
 }
 
