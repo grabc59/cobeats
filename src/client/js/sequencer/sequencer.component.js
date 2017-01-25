@@ -8,8 +8,9 @@
   function controller(){
     const vm = this;
     vm.$onInit = onInit;
-    vm.click = function(index, e) {
-      console.log(e.target);
+    vm.click = trackSelected;
+
+    function trackSelected(index) {
       // if(vm.tracks[0].beats[index]) {
       if(vm.sequence[index]) {
         // vm.tracks[0].beats[index] = 0;
@@ -20,9 +21,11 @@
       } else {
         // vm.tracks[0].beats[index] = 1;
         vm.sequence[index] = 1;
+        vm.track0.vol(vm.sequence);
         angular.element(document.getElementById(`${index}`)).addClass('active');
       }
     }
+
     function onInit() {
       vm.sequence = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
       vm.tracks = [ {
@@ -46,27 +49,27 @@
         function( list ) {
           testLead = list;
         } );
-      var track0 = new track()
+      vm.track0 = new track()
       // track0.sample( testLead )
-      track0.beat( 3 )
+      vm.track0.beat( 3 )
       // .notes( walk.major(64))
       // track0.notes( walk.minor(63, 3))
       // var lead = track0.vol( vm.sequence )
-      var lead = track0.vol( vm.sequence )
+      var lead = vm.track0.vol( vm.sequence )
 
       // track0.start();
-      track0.currentTime + track0.lookaheadTime
+      vm.track0.currentTime + vm.track0.lookaheadTime
 
     function drawPlayhead(currentIndex) {
-    var previousIndex = (currentIndex + loop_length - 1) % loop_length;
-    var $newRows = $('.column_' + currentIndex);
-    var $oldRows = $('.column_' + previousIndex);
+      var previousIndex = (currentIndex + loop_length - 1) % loop_length;
+      var $newRows = $('.column_' + currentIndex);
+      var $oldRows = $('.column_' + previousIndex);
 
-    $newRows.addClass("playing");
-    $oldRows.removeClass("playing");
+      $newRows.addClass("playing");
+      $oldRows.removeClass("playing");
 
-    let element = angular.element('#beat'+currentIndex).attr("class","active")
-}
+      let element = angular.element('#beat'+currentIndex).attr("class","active")
+    }
 
 // clock.start();
 
