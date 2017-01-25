@@ -1,6 +1,6 @@
 'use strict';
 $(function() {
-    var socket = io.connect();
+    // var socket = io.connect();
     var $messageForm = $('#messageForm');
     var $message = $('#message');
     var $messageHistory = $('#messageHistory');

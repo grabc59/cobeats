@@ -90,7 +90,7 @@ io.sockets.on('connection', function(socket) {
   connections.push(socket);
   // informational logs
   console.log('Connected: %s sockets connected', connections.length);
-  console.log(connections.length);
+  console.log(connected_users);
 
   //////////// DISCONNECT EVENT
   socket.on('disconnect', function(data) {
