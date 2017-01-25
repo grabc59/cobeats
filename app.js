@@ -21,12 +21,17 @@ app.use('/', express.static(path.join(__dirname, 'src/client')));
 app.use('/users', users);
 app.use('/messages', messages);
 
+app.use('*', function(req, res, next) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'src/client')});
+});
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
 
 // error handlers
 
