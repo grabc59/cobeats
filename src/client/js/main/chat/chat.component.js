@@ -35,6 +35,19 @@
           })
       }
 
+      vm.sendMessage = function(newMessage) {
+        // console.log(newMessage);
+        socket.emit('send message', newMessage.content);
+        newMessage.username = vm.current_user;
+        $http.post('/messages', {newMessage})
+          .then(function (response) {
+          });
+        vm.newMessage = "";
+        // when a message is submitted, clear the 'typing' timeout
+        // vm.clearTimeout(timeout);
+        // vm.timeout = setTimeout(timeoutFunction, 0);
+      }
+
       ///////////////////////////////////
       /////// SOCKET EVENTS
       ///////////////////////////////////
@@ -57,5 +70,8 @@
 //       // add the message to the message box
 //       $messageHistory.append('<div class="well"><strong>' + data.user + '</strong>:' + data.msg + '</div>');
       });
+
+      
+
     }
 }());
