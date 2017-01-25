@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "NODE_ENV=test mocha"
+    "start": "node app.js",
+    "test": "NODE_ENV=test mocha",
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:latest"
   },
   "repository": "git@github.com:grabc59/cobeats.git",
   "author": "Chris Grabski, Ariana Clark, Laura Baukol, Elizabeth Davis, Matthew Gordon",
@@ -17,7 +19,10 @@
     "morgan": "^1.7.0",
     "pg": "^6.1.2",
     "socket.io": "^1.7.2",
-    "ui-router": "^1.0.0-alpha.3"
+    "ui-router": "^1.0.0-alpha.3",
+    "engines": { 
+      "node": "7.0.0"
+    }
   },
   "devDependencies": {
     "chai": "^3.5.0",
