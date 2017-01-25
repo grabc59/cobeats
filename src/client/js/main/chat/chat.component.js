@@ -14,7 +14,6 @@
     ////////////////////////////
     function controller($http, $state, socket) {
       const vm = this;
-      console.log('chat component controller log');
 
       ////// INIT
       vm.$onInit = function() {

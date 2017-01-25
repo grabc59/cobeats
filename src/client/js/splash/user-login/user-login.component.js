@@ -14,8 +14,7 @@
     ////////////////////////////
     function controller($http, $state) {
       const vm = this;
-      console.log('user log in component controller log');
-      
+    
 
       ////////////////////////////
       /////// SUBMIT USERNAME
