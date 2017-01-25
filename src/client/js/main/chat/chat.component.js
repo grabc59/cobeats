@@ -31,8 +31,8 @@
       vm.getMessages = function (){
         return $http.get('/messages')
           .then(function(data) {
-            console.log(data);
-            vm.chatMessages = data;
+            console.log(data.data);
+            vm.chatMessages = data.data;
           })
       }
 

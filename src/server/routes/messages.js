@@ -6,7 +6,8 @@ const messagesQueries = require('../db/messagesQueries');
 
 // *** GET all messages *** //
 router.get('/', (req, res, next) => {
-  messagesQueries.getAllMessages()
+  // messagesQueries.getAllMessages()
+  messagesQueries.getAllMessagesWithUsernames()
   .then((messages) => {
     res.status(200).json(messages);
   })
