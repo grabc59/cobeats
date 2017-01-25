@@ -1,5 +1,8 @@
 'use strict';
 
+//////////////////////////////////////
+/////// SERVER REQUIREMENTS
+//////////////////////////////////////
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -8,6 +11,12 @@ const io = require('socket.io').listen(server);
 const port = process.env.PORT || 3000;
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+
+//////////////////////////////////////
+/////// SOCKET VARIABLES
+//////////////////////////////////////
+const connected_users = [];
+const connections = [];
 
 //////////////////////////////////////
 /////// ROUTE FILE DECLARATIONS
@@ -72,9 +81,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-
-
-
 //////////////////////////////////////
 //////////      SOCKET SERVER
 //////////////////////////////////////
@@ -89,7 +95,7 @@ io.sockets.on('connection', function(socket) {
   //////////// DISCONNECT EVENT
   socket.on('disconnect', function(data) {
     if (!socket.username) return;
-    users.splice(users.indexOf(socket.username), 1);
+    connected_users.splice(connected_users.indexOf(socket.username), 1);
     updateUsernames();
     connections.splice(connections.indexOf(socket),1);
     console.log('disconnected: %s sockets connected', connections.length);
@@ -105,14 +111,14 @@ io.sockets.on('connection', function(socket) {
   socket.on('new user', function(data, callback) {
     callback(true);
     socket.username = data;
-    users.push(socket.username);
+    connected_users.push(socket.username);
     updateUsernames();
     io.sockets.emit('new user notification', socket.username);
   });
 
   //////////// GET USERNAMES
   function updateUsernames() {
-    io.sockets.emit('get users', users);
+    io.sockets.emit('get users', connected_users);
   }
 
   //////////// USER IS TYPING EVENT
