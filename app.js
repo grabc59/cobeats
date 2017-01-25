@@ -109,6 +109,7 @@ io.sockets.on('connection', function(socket) {
 
   //////////// NEW USER EVENT
   socket.on('new user', function(data, callback) {
+    console.log('new user event! ', data)
     callback(true);
     socket.username = data;
     connected_users.push(socket.username);
