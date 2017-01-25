@@ -30,27 +30,16 @@ router.get('/:id', (req, res, next) => {
 
 // *** POST create single message *** //
 router.post('/', (req, res, next) => {
-  console.log(req.body);
-  ///// CUSTOM POST - find the user_id for the message given the username
-  // usersQueries
-  // .getSingleUserIDByUsername(req.body.username)
-  // .then((userID) => {
-  //   let newMessage = {
-  //     content: req.body.content,
-  //     user_id: userID
-  //   }
-    messagesQueries.addMessage(req.body)
-    // messagesQueries.addMessage(req.body) ///// ORIGINAL QUERY
-    .then((messageID) => {
-      return messagesQueries.getSingleMessage(messageID);
-    })
-    .then((message) => {
-      res.status(200).json(message);
-    })
-    .catch((error) => {
-      next(error);
-    });
-  // });
+  messagesQueries.addMessage(req.body)
+  .then((messageID) => {
+    return messagesQueries.getSingleMessage(messageID);
+  })
+  .then((message) => {
+    res.status(200).json(message);
+  })
+  .catch((error) => {
+    next(error);
+  });
 })
 
 // *** PUT update a single message ***//
