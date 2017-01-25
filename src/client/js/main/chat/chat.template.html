@@ -15,7 +15,7 @@
             <div ng-repeat="message in $ctrl.chatMessages | orderBy: message.created_at" class="well">
                 <strong>{{message.username}}</strong>
                 {{message.content}}
-                <div><small>{{message.created_at}}</small></div>
+                <div><small>{{message.created_at | date:'medium'}}</small></div>
                 
             </div>
         </div>
