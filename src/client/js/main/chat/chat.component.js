@@ -39,7 +39,7 @@
         // console.log(newMessage);
         socket.emit('send message', newMessage.content);
         newMessage.username = vm.current_user;
-        $http.post('/messages', {newMessage})
+        $http.post('/messages', newMessage)
           .then(function (response) {
           });
         vm.newMessage = "";

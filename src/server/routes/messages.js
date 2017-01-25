@@ -3,11 +3,12 @@
 const express = require('express');
 const router = express.Router();
 const messagesQueries = require('../db/messagesQueries');
+const usersQueries = require('../db/usersQueries')
 
 // *** GET all messages *** //
 router.get('/', (req, res, next) => {
-  // messagesQueries.getAllMessages()
-  messagesQueries.getAllMessagesWithUsernames()
+  // messagesQueries.getAllMessages() // vanilla query
+  messagesQueries.getAllMessagesWithUsernames() // query that resolves message sender usernames from the db
   .then((messages) => {
     res.status(200).json(messages);
   })
@@ -29,17 +30,28 @@ router.get('/:id', (req, res, next) => {
 
 // *** POST create single message *** //
 router.post('/', (req, res, next) => {
-  messagesQueries.addMessage(req.body)
-  .then((messageID) => {
-    return messagesQueries.getSingleMessage(messageID);
-  })
-  .then((message) => {
-    res.status(200).json(message);
-  })
-  .catch((error) => {
-    next(error);
+  console.log(req.body);
+  ///// CUSTOM POST - find the user_id for the message given the username
+  usersQueries
+  .getSingleUserIDByUsername(req.body.username)
+  .then((userID) => {
+    let newMessage = {
+      content: req.body.content,
+      user_id: userID
+    }
+    messagesQueries.addMessage(newMessage)
+    // messagesQueries.addMessage(req.body) ///// ORIGINAL QUERY
+    .then((messageID) => {
+      return messagesQueries.getSingleMessage(messageID);
+    })
+    .then((message) => {
+      res.status(200).json(message);
+    })
+    .catch((error) => {
+      next(error);
+    });
   });
-});
+})
 
 // *** PUT update a single message ***//
 router.put('/:id', (req, res, next) => {
