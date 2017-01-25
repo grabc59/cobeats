@@ -9,46 +9,63 @@
   function controller() {
     const vm = this;
     vm.$onInit = onInit;
-    vm.activateBeat = activateBeat;
+    vm.click = trackSelected;
+
+    function trackSelected( index ) {
+      // if(vm.tracks[0].beats[index])
+      if ( vm.sequence[ index ] ) {
+        // vm.tracks[0].beats[index] = 0;
+        vm.sequence[ index ] = 0;
+        if ( angular.element( document.getElementById( `${index}` ) ).hasClass( 'active' ) ) {
+          angular.element( document.getElementById( `${index}` ) ).removeClass( 'active' )
+        }
+      } else {
+        // vm.tracks[0].beats[index] = 1;
+        vm.sequence[ index ] = 1;
+        vm.track0.vol( vm.sequence );
+        angular.element( document.getElementById( `${index}` ) ).addClass( 'active' );
+      }
+    }
 
     function onInit() {
+      vm.sequence = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
       vm.tracks = [ {
-          beats: [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-
+          beats: vm.sequence,
         } ]
-        // var testLead = [];
+        // var testSilence = [];
         // loadSounds( [
-        //     '../../samples/lead.wav'
+        //     '../../samples/silence.wav'
         //   ],
         //   function( list ) {
-        //     testLead = list;
+        //     testSilence = list;
         //   } );
-      var track0 = new track()
+      var testLead = [];
+      loadSounds( [
+          '../../samples/lead.wav'
+        ],
+        function( list ) {
+          testLead = list;
+        } );
+      vm.track0 = new track()
         // track0.sample( testLead )
-      track0.beat( 1 )
-      var lead = track0.vol( [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ] )
+      vm.track0.beat( 3 )
+        // .notes( walk.major(64))
+        // track0.notes( walk.minor(63, 3))
+        // var lead = track0.vol( vm.sequence )
+      var lead = vm.track0.vol( vm.sequence )
 
       // NOTE: DOM manipulation is happening in lissajous/src/track.sequencer.js
 
-      // clock.start();
+
 
       //create a button track.core, context
       //for visualization: create set interval
       //create array of cells 0-15 and repeat
       //button start interval time that console.logs
       //dom elements that target arrray
-
-    }
-
-    function activateBeat( beat ) {
-      console.log( "click" );
-      if ( beat === 1 ) {
-        beat = 0
-      } else {
-        beat = 1
-      }
     }
   }
+
   // console.log("clock",controller.onInit.clock);
   // module.exports = {clock: controller.onInit.clock};
 } )();

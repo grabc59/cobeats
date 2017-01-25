@@ -1,3 +1,4 @@
 <div class="sequence" ng-repeat="track in $ctrl.tracks">
-  <div ng-click="$ctrl.activateBeat(beat)" class="beat" id="{{$index}}" ng-repeat="beat in track.beats track by $index" >{{beat}}</div>
+  <div class="beat" id="{{$index}}" ng-click="$ctrl.click($index)" ng-repeat="beat in track.beats track by $index" ></div>
 </div>
+<di><h1>{{ $ctrl.tracks[0].beats }}</h1></div>

@@ -44,7 +44,15 @@
 
 .current {
   border: 1px solid;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(255, 0, 0, 0.5) !important;
+  width: 5%;
+  height: 0;
+  padding-bottom: 3%;
+}
+
+.active {
+  border: 1px solid;
+  background: rgba(0, 255, 0, 0.5);
   width: 5%;
   height: 0;
   padding-bottom: 3%;
