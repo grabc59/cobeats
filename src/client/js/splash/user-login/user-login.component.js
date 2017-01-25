@@ -22,7 +22,6 @@
       ////////////////////////////
       vm.submitUsername = function(username) {
         localStorage.username = username;
-         vm.socket = io.connect();
         // send a post to the users table
         // format the username like an object (using es6) so it will be stringified
         $http.post('/users', {username})
@@ -30,6 +29,7 @@
             // vm.postResponse = response.data;
             $state.go('main');
           });
+          
         socket.emit('new user', username.val(), function(data) {
             if (data) {
                 $userFormArea.hide();
