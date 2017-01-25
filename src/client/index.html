@@ -12,21 +12,29 @@
 
   <!-- Custom css -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/css/main-styles.css">
   <link rel="stylesheet" href="/css/chat-styles.css">
 
   </head>
   <body>
-
+    <header>
+        <!-- nav-wrapper -->
+        <!-- <nav role="navigation" id="nav-header">
+            <div class="nav-wrapper container navContainer">
+                <a id="mainLogo" href="index.html" class="brand-logo"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a> -->
+        <nav>
+            <div>
+                <a id="mainLogo" href="index.html"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a>
+            </div>
+            <!-- end nav-wrapper -->
+        </nav>
+    </header>
       <!-- main app -->
 
       <ui-view></ui-view>
 
       <sequencer></sequencer>
 
-
-      <!-- <sample></sample> -->
-
-    
 
     <!-- ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
