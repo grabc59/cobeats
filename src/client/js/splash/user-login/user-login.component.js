@@ -7,12 +7,12 @@
       templateUrl: 'js/splash/user-login/user-login.template.html'
     });
 
-    controller.$inject = ['$http', '$state'];
+    controller.$inject = ['$http', '$state', 'socket'];
 
     ////////////////////////////
     /////// CONTROLLER
     ////////////////////////////
-    function controller($http, $state) {
+    function controller($http, $state, socket) {
       const vm = this;
       console.log('user log in component controller log');
 

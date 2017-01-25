@@ -15,8 +15,8 @@ const bodyParser = require('body-parser');
 //////////////////////////////////////
 /////// SOCKET VARIABLES
 //////////////////////////////////////
-const connected_users = [];
-const connections = [];
+var connected_users = [];
+var connections = [];
 
 //////////////////////////////////////
 /////// ROUTE FILE DECLARATIONS
