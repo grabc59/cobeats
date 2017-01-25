@@ -2,14 +2,22 @@
 
 const path = require('path');
 const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
+const port = process.env.PORT || 3000;
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
-const app = express();
 
+//////////////////////////////////////
+/////// ROUTE FILE DECLARATIONS
+//////////////////////////////////////
 const users = require('./src/server/routes/users');
 const messages = require('./src/server/routes/messages');
 
+//////////////////////////////////////
+/////// MIDDLEWARE
+//////////////////////////////////////
 app.use(logger('short'));
 
 app.set('views', path.join(__dirname, 'src/client'));
@@ -21,6 +29,13 @@ app.use('/', express.static(path.join(__dirname, 'src/client')));
 app.use('/users', users);
 app.use('/messages', messages);
 
+//////// WILDCARD ROUTE
+  // allows user to refresh the page while on an angular route 
+  // example: refresh http://localhost:3000/main
+  // >> no matching express routes besides this wildcard
+  // >> server sends index.html 
+  // >> browser loads angular from the index
+  // >> angular reads the url and loads the right view
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {root: path.join(__dirname, 'src/client')});
 });
