@@ -51,7 +51,7 @@
   padding-bottom: 3%;
 }
 
-.active {
+.active-class {
   border: 1px solid;
   /*background: rgba(242, 255, 80, 0.5);*/
   background: #f2ff50;
