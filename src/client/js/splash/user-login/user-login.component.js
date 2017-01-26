@@ -6,7 +6,7 @@
       controller: controller,
       templateUrl: 'js/splash/user-login/user-login.template.html'
     });
-
+console.log("Getting to user-login component.");
     controller.$inject = ['$http', '$state'];
 
     ////////////////////////////
@@ -14,7 +14,7 @@
     ////////////////////////////
     function controller($http, $state) {
       const vm = this;
-    
+
 
       ////////////////////////////
       /////// SUBMIT USERNAME

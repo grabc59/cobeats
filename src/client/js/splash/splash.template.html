@@ -1,4 +1,5 @@
 
+
 <div class="navbar">
 <div class= "concept" id= "logo" ng-init= "logo= './img/Logo_concept.png'" ></div>
 <div ng-init="headphone='./img/headphone.jpg'">
@@ -6,3 +7,14 @@
 <img ng-src="{{headphone}}" height= "710px" width= "1440px">
 <img ng-src="{{logo}}" height= "125px" width= "125px">
 </div>
+
+<body>
+    <div class="navbar">
+        <div class="concept" id="logo" ng-init="logo= './img/Logo_concept.png'"></div>
+        <div ng-init="headphone='./img/headphone.jpg'">
+            <button class="center" id="login" ng-click="changeLink()" ui-sref="user-login">Login</button>
+            <img ng-src="{{headphone}}" height="790px" width="1440px">
+            <img ng-src="{{logo}}" height="125px" width="125px">
+          </div>
+        </div>
+    </body>
