@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+
+<head>
     <base href="/">
     <meta charset="utf-8">
     <title>coBeats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 
-  <!-- Custom css -->
+    <!-- Custom css -->
 
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/chat-styles.css">
-  <link rel="stylesheet" href="/css/main-styles.css">
-  <link rel="stylesheet" href="/css/easel-styles.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/chat-styles.css">
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <link rel="stylesheet" href="/css/easel-styles.css">
+</head>
+
+<body>
     <header>
         <!-- nav-wrapper -->
         <!-- <nav role="navigation" id="nav-header">
@@ -27,12 +29,12 @@
             <div>
                 <a id="mainLogo" href="index.html"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a>
             </div> -->
-            <!-- end nav-wrapper -->
+        <!-- end nav-wrapper -->
         <!-- </nav> -->
     </header>
-      <!-- main app -->
+    <!-- main app -->
 
-      <ui-view></ui-view>
+    <ui-view></ui-view>
 
 
     <!-- ANGULAR -->
@@ -92,33 +94,31 @@
 
     <!-- COMPONENTS -->
 
-      <!-- SPLASH -->
+    <!-- SPLASH -->
     <script type="text/javascript" src="/js/splash/splash.component.js"></script>
-        <!-- USER LOGIN -->
+    <!-- USER LOGIN -->
     <script type="text/javascript" src="/js/splash/user-login/user-login.component.js"></script>
-
-      <!-- MAIN -->
+    <!-- ABOUT -->
+    <script type="text/javascript" src="/js/about/about.component.js"></script>
+    <!-- MAIN -->
     <script type="text/javascript" src="/js/main/main.component.js"></script>
-        <!-- CHAT -->
+    <!-- CHAT -->
     <script type="text/javascript" src="/js/main/chat/chat.component.js"></script>
-        <!-- SEQUENCER COMPONENT -->
+    <!-- SEQUENCER COMPONENT -->
     <script type="text/javascript" src="/js/sequencer/sequencer.component.js"></script>
-
-        <!-- EASEL COMPONENT -->
+    <!-- EASEL COMPONENT -->
     <script type="text/javascript" src="/js/main/easel/easel.component.js"></script>
 
     <!-- SOCKETS -->
-      <!-- NPM MODULE -->
+    <!-- NPM MODULE -->
     <script src="/socket.io/socket.io.js"></script>
-      <!-- CLIENT JS -->
+    <!-- CLIENT JS -->
     <script src="/js/chat-script.js"></script>
-      <!-- SOCKET SERVICE -->
+    <!-- SOCKET SERVICE -->
     <script src="/js/socket.service.js"></script>
 
     <!-- EASEL -->
     <!--<script src="/js/easel-script.js"></script>-->
+</body>
 
-    <!-- ELECTRON -->
-    <script src="/js/electron-index.js"></script>
-  </body>
 </html>

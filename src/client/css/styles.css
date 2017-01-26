@@ -6,6 +6,19 @@
   height: 100vh;
 }
 
+@media screen and (min-width: 1366px) {
+#gallery-1 img {width:375px;}
+}
+/*@media screen and (min-width: 1440px) {
+#gallery-1 img {width:428px;}
+}*/
+/*@media screen and (min-width: 1600px) {
+#gallery-1 img {width:434px;}
+}*/
+/*@media screen and (min-width: 1920px) {
+#gallery-1 img {width:540px;}
+}*/
+
 .flex {
   display: flex;
   flex-direction: row;
@@ -39,7 +52,6 @@
   width: 5%;
   height: 0;
   padding-bottom: 3%;
-
 }
 
 .current {
@@ -63,13 +75,22 @@
 #logo {
   position: fixed;
   float: center;
-
-
 }
 
 .concept{
   position: fixed;
 }
+
+/*#about {
+  font-style: italic;
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
 
 #login{
   position: fixed;
@@ -90,5 +111,5 @@
 }
 .navbar {
    background-color: black;
-   position: fixed;
+   position: static;
 }
