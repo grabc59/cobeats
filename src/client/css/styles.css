@@ -59,3 +59,12 @@
   height: 0;
   padding-bottom: 3%;
 }
+
+.indexBG {
+  background-image: url(img/headphone.jpg);
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
