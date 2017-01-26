@@ -4,7 +4,7 @@
     .module('app')
     .component('easel', {
       controller: controller,
-      templateUrl: 'js/main/easel.template.html'
+      templateUrl: 'js/main/easel/easel.template.html'
     })
     function controller() {
       const vm = this;
