@@ -1,0 +1,45 @@
+/*.navContainer{
+  width: 100%;
+}*/
+
+/*nav, .nav-wrapper {
+  height: 75px;
+  line-height: 75px;
+  /*background-color: #e9e7da;*/
+}*/
+
+nav ul a {
+  color: #cda34f;
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+a{
+  color: #cda34f;
+}
+
+footer.page-footer {
+  background-color: #e9e7da;
+  margin-top: 0px;
+}
+
+@media only screen and (min-width: 601px)
+#nav-header, nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+  height: 80px;
+  line-height: 80px;
+}
+
+main {
+  padding-top: 3rem;
+  flex: 1 0 auto;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+[ng-click] {
+  cursor: pointer;
+}
