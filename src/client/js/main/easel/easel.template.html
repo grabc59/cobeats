@@ -1,23 +1,17 @@
-  <div id="easel">
+  <div id="easel" >
     <div id="grid-container">
       <!-- populate with pixel-rows of pixel-divs -->
+      <div ng-click="$ctrl.applyColor($event, $index)" id="{{$index}}" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
     </div>
     <div class="row">
 
       <div id="current-color"></div>
     </div>
-    <div id="palette">
+    <div id="palette" ng-click="$ctrl.selectColor($event)">
       <div class="palette-row" id="pal-row">
+        <div class="color-well" style="background-color: {{color}}" ng-repeat="color in $ctrl.colorPallette"></div>
+      </div>
 
-      </div>
-      <div class="row">
-        <div id="picker-container">
-          <p class="clearfix">
-            Select custom color:
-          </p>
-          <input type="color" class="color-picker clearfix" id="color-picker">
-        </div>
-      </div>
     </div>
 
   </div>

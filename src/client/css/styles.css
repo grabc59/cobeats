@@ -59,3 +59,29 @@
   height: 0;
   padding-bottom: 3%;
 }
+
+#logo {
+  position: fixed;
+  float: center;
+
+}
+
+.concept{
+  position: fixed;
+}
+
+#login{
+  position: fixed;
+  float: center;
+  background-color: transparent;
+    border: 2px solid white;
+    padding: 15px 32px;
+    text-transform: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

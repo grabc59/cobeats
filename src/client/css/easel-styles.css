@@ -1,0 +1,128 @@
+html{
+  font-size: 62.5%;
+}
+#easel{
+  margin: auto;
+  background-color: #EDEDED;
+  display: flex;
+  width: min-content;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  flex-basis: auto;
+  align-content: center;
+  padding: 3%;
+  border: 2px solid #757575;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px 2px #424242;
+}
+.row {
+  width: 100%;
+}
+
+#current-color {
+  background-color: #FFFFFF;
+  height: 3rem;
+  width: 9rem;
+  border: .2rem solid #424242;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+/* ---- the grid ---- */
+#grid-container {
+  margin: 0;
+  width: 81rem;
+  padding: 0;
+  flex-flow: row;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  border: 2px solid #424242;
+}
+.pixel-row {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.pixel-div {
+  background-color: white;
+  min-width: 5rem;
+  min-height: 5rem;
+  border-top: none;
+  border-right: .1rem solid #ADADAD;
+  border-bottom: .1rem solid #ADADAD;
+  border-left: none;
+  float: left;
+}
+
+/* ---- palette ---- */
+#palette {
+  flex-wrap: wrap;
+  padding: 1.2rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  border: 2px solid #757575;
+  border-radius: 1rem;
+}
+
+.palette-row {
+  margin: auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.color-well {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: .25rem;
+  border: .2rem solid #424242;
+  border-radius: 1rem;
+  float: left;
+}
+
+#picker-container {
+  width: 42%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+p {
+  text-align: center;
+  font-size: 2rem;
+  float: left;
+  margin: .2rem 0;
+  padding: 0;
+}
+.color-picker {
+  width: 5.6rem;
+  height: 2.8rem;
+  padding: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  border: .2rem solid #424242;
+  border-radius: 1rem;
+  float: left;
+}
+
+
+/* ---- resets ---- */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}

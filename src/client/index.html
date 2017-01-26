@@ -12,10 +12,10 @@
 
   <!-- Custom css -->
 
-  <link rel="stylesheet" href="/css/main-styles.css">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/chat-styles.css">
-
+  <link rel="stylesheet" href="/css/main-styles.css">
+  <link rel="stylesheet" href="/css/easel-styles.css">
   </head>
   <body>
     <header>
@@ -23,20 +23,23 @@
         <!-- <nav role="navigation" id="nav-header">
             <div class="nav-wrapper container navContainer">
                 <a id="mainLogo" href="index.html" class="brand-logo"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a> -->
-        <nav>
+        <!-- <nav>
             <div>
                 <a id="mainLogo" href="index.html"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a>
-            </div>
+            </div> -->
             <!-- end nav-wrapper -->
-        </nav>
+        <!-- </nav> -->
     </header>
       <!-- main app -->
 
       <ui-view></ui-view>
 
+<<<<<<< HEAD
       <sequencer></sequencer>
 
 
+=======
+>>>>>>> 302723c9f97b9bc76d5997d41c2910d26e05fbfe
     <!-- ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 
@@ -103,8 +106,11 @@
     <script type="text/javascript" src="/js/main/main.component.js"></script>
         <!-- CHAT -->
     <script type="text/javascript" src="/js/main/chat/chat.component.js"></script>
-    <!-- sample component -->
+        <!-- SEQUENCER COMPONENT -->
     <script type="text/javascript" src="/js/sequencer/sequencer.component.js"></script>
+
+        <!-- EASEL COMPONENT -->
+    <script type="text/javascript" src="/js/main/easel/easel.component.js"></script>
 
     <!-- SOCKETS -->
       <!-- NPM MODULE -->
@@ -113,5 +119,8 @@
     <script src="/js/chat-script.js"></script>
       <!-- SOCKET SERVICE -->
     <script src="/js/socket.service.js"></script>
+
+    <!-- EASEL -->
+    <!--<script src="/js/easel-script.js"></script>-->
   </body>
 </html>
