@@ -1,7 +1,7 @@
   <div id="easel" >
     <div id="grid-container">
       <!-- populate with pixel-rows of pixel-divs -->
-      <div ng-click="$ctrl.applyColor($event)" id="$index" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
+      <div ng-click="$ctrl.applyColor($event, $index)" id="$index" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
     </div>
     <div class="row">
 

@@ -22,8 +22,8 @@
 
     }
 
-    function applyColor( event ) {
-      console.log(event);
+    function applyColor( event, index) {
+      console.log(index, vm.currentColor);
       event.target.style.backgroundColor = vm.currentColor;
     }
 
