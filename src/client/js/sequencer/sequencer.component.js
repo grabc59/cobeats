@@ -11,7 +11,7 @@
 
     function onInit() {
       vm.tracks = [ {
-        beats: [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        beats: [ 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1],
 
       } ]
       var beatsArray = vm.tracks[0].beats
@@ -27,17 +27,35 @@
       //   } );
       var testLead = [];
       loadSounds( [
-          '../../samples/lead.wav'
+          '../../samples/kick.wav'
         ],
         function( list ) {
           testLead = list;
         } );
       var track0 = new track()
-      // track0.sample( testLead )
-      track0.beat( 3 )
-      // .notes( walk.major(64))
-      // track0.notes( walk.minor(63, 3))
-      var lead = track0.vol( [ 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] )
+
+      // track0.saw().beat( 3 )
+      // track0.adsr(.05, 7, 1, 1)//lead1
+
+      // track0.sine().beat( 3 )
+      // track0.adsr(0, .05, 0, 0)//kick
+
+
+      // track0.tri().beat( 3 )
+      // track0.adsr32(.05, .5, .7, .5)//bass
+
+      // track0.tri().beat( 3 )
+      // track0.adsr32(.08, 1, .5, .5)//lead2
+
+      // track0.tri().beat( 3 )
+      // track0.adsr32(0, 0, 0, 0)//silence
+
+      // track0.square().beat( 3 )
+      // track0.adsr32(.1, 1, .5, 2)//lead3
+
+
+
+      var lead = track0.vol( [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0] )
 
       // track0.start();
       track0.currentTime + track0.lookaheadTime

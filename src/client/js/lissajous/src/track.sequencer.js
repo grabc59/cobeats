@@ -16,17 +16,20 @@ Sequencer.prototype.next = function(nextTick) {
   var self = this;
   if(self.pattern.length) {
     if(typeof self.pattern[self.currentStep] === 'function') {
-
+console.log("everywhere");
       self.callback(self.pattern[self.currentStep](), nextTick);
 
 
     } else {
       self.callback(self.pattern[self.currentStep], nextTick);
+      console.log('here');
       if (self.currentStep >= 1) {
+
         var previousStep = self.currentStep - 1;
         var previousCell = document.getElementById(previousStep);
         previousCell.classList.remove('current');
       } else if (document.getElementById("15").classList.contains("current")) {
+          console.log('there');
           document.getElementById("15").classList.remove("current")
 
       }
