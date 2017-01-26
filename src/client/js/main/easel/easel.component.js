@@ -22,9 +22,16 @@
 
     }
 
-    function applyColor( event, index) {
+    function applyColor( event, index ) {
       console.log(index, vm.currentColor);
       event.target.style.backgroundColor = vm.currentColor;
+
+      /////// SOCKET EVENT - PIXEL CLICK
+      let pixelInfo = {
+        index,
+        currentColor = vm.currentColor
+      };
+      socket.emit('pixel click', pixelInfo);
     }
 
     function pixelArray() {
