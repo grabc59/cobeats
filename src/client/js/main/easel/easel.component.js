@@ -39,9 +39,14 @@
     /////// SOCKET EVENT - UPDATE PIXEL
     //// another user clicked a pixel
     socket.on('update pixel', function(data) {
-      // console.log('SOCKET EVENT', data, angular.element(document.getElementById(`#${data}`)));
-      console.log(data.pixelInfo.index)
       document.getElementById(data.pixelInfo.index).setAttribute("style", `background-color: ${data.pixelInfo.currentColor}`);
+      $('#' + data.pixelInfo.index).popover();
+        placement: 'bottom',
+        delay: {
+            show: 500,
+            hide: 100
+        }
+
     });
 
     function pixelArray() {
