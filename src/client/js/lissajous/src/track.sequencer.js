@@ -13,6 +13,7 @@ Sequencer.prototype.set = function( arguments ) {
 
 Sequencer.prototype.next = function( nextTick ) {
   var self = this;
+
   if ( self.pattern.length ) {
     if ( typeof self.pattern[ self.currentStep ] === 'function' ) {
 
@@ -21,6 +22,7 @@ Sequencer.prototype.next = function( nextTick ) {
 
     } else {
       self.callback( self.pattern[ self.currentStep ], nextTick );
+
       console.log( self.pattern );
       // if ( self.currentStep >= 1 ) {
       //   var previousStep = self.currentStep - 1;
@@ -32,6 +34,7 @@ Sequencer.prototype.next = function( nextTick ) {
       // }
       // var d = document.getElementById( self.currentStep );
       // d.classList.add( "current" );
+
     }
     self.currentStep = ++self.currentStep % self.pattern.length;
     self.beatStep++
