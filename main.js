@@ -18,7 +18,7 @@ function createWindow () {
   //   protocol: 'file:',
   //   slashes: true
   // }))
-  win.loadURL('https://cobeats.herokuapp.com');
+  win.loadURL('https://cobeats.herokuapp.com/main');
 
   // Open the DevTools.
   win.webContents.openDevTools()
