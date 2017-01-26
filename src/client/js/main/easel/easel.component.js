@@ -4,7 +4,7 @@
     .module( 'app' )
     .component( 'easel', {
       controller: controller,
-      templateUrl: 'js/main/easel.template.html'
+      templateUrl: 'js/main/easel/easel.template.html'
     } )
 
   function controller() {
@@ -18,6 +18,7 @@
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
       document.getElementById( 'current-color' ).style.backgroundColor = vm.currentColor;
+
     }
 
     function applyColor( event ) {
