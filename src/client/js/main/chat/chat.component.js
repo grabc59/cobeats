@@ -7,12 +7,12 @@
       templateUrl: 'js/main/chat/chat.template.html'
     });
 
-    controller.$inject = ['$http', '$state', 'socket'];
-    
+    controller.$inject = ['$http', '$state', 'socket', '$timeout'];
+
     ////////////////////////////
     /////// CONTROLLER
     ////////////////////////////
-    function controller($http, $state, socket) {
+    function controller($http, $state, socket, $timeout) {
       const vm = this;
 
       ////// INIT
@@ -24,6 +24,7 @@
             console.log('new user log: ', data, localStorage.username);
         });
         vm.getMessages();
+        vm.messageTimeout();
       }
 
       ///////////////////////////////////
@@ -34,6 +35,14 @@
           .then(function(data) {
             vm.chatMessages = data.data;
           })
+      }
+
+      vm.messageTimeout = function () {
+        console.log('logged captain');
+        $timeout(() => {
+          let messageDiv = document.getElementById('messageHistory');
+          messageDiv.scrollTop = messageDiv.scrollHeight;
+        }, 0, false);
       }
 
       vm.sendMessage = function(newMessage) {
@@ -53,7 +62,7 @@
       ///////////////////////////////////
       /////// SOCKET EVENTS
       ///////////////////////////////////
-      
+
       ////// NEW USER NOTIFICATION
       socket.on('new user notification', function(data) {
         console.log(data);
@@ -70,11 +79,10 @@
       socket.on('new message', function(data) {
         console.log('new message: ', data)
         vm.chatMessages.push(data);
-//       // add the message to the message box
-//       $messageHistory.append('<div class="well"><strong>' + data.user + '</strong>:' + data.msg + '</div>');
+        vm.messageTimeout();
       });
 
-      
+
 
     }
 }());
