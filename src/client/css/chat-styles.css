@@ -4,11 +4,15 @@
 
 .container {
   margin-top: 30px;
+  height: 300px;
+  width: 200px;
+
 }
 
 #messageHistory {
   overflow: scroll;
   height: 300px;
+  width: 200px;
   background-color: rgba(255, 255, 255, .2);
   padding: 10px;
 }
@@ -16,6 +20,8 @@
 #chat {
   position: relative;
   margin: auto;
+  height: 300px;
+  width: 200px;
 
 }
 
@@ -25,4 +31,8 @@
 
 #updates {
   min-height: 20px;
+
+}
+.chat_container{
+  float: right;
 }

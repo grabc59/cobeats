@@ -90,7 +90,7 @@
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1g
             row1Lead1Volume.push( 1 )
-            row1Lead1Notes.push( 70 )
+            row1Lead1Notes.push( 50 )
             row1BassVolume.push( 0 )
             row1BassNotes.push( 0 )
             row1Lead2Volume.push( 0 )
@@ -127,7 +127,7 @@
             row1BassVolume.push( 0 )
             row1BassNotes.push( 0 )
             row1Lead2Volume.push( 1 )
-            row1Lead2Notes.push( 70 )
+            row1Lead2Notes.push( 50 )
             row1Lead3Volume.push( 0 )
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
@@ -162,7 +162,7 @@
             row1Lead2Volume.push( 0 )
             row1Lead2Notes.push( 0 )
             row1Lead3Volume.push( 1 )
-            row1Lead3Notes.push( 70 )
+            row1Lead3Notes.push( 50 )
             row1KickVolume.push( 0 )
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
@@ -191,7 +191,7 @@
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 1 )
-            row1BassNotes.push( 70 )
+            row1BassNotes.push( 50 )
             row1Lead2Volume.push( 0 )
             row1Lead2Notes.push( 0 )
             row1Lead3Volume.push( 0 )
@@ -259,7 +259,7 @@
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1G
             row2Lead1Volume.push( 1 )
-            row2Lead1Notes.push( 70 )
+            row2Lead1Notes.push( 50 )
             row2BassVolume.push( 0 )
             row2BassNotes.push( 0 )
             row2Lead2Volume.push( 0 )
@@ -296,7 +296,7 @@
             row2BassVolume.push( 0 )
             row2BassNotes.push( 0 )
             row2Lead2Volume.push( 1 )
-            row2Lead2Notes.push( 70 )
+            row2Lead2Notes.push( 50 )
             row2Lead3Volume.push( 0 )
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
@@ -331,7 +331,7 @@
             row2Lead2Volume.push( 0 )
             row2Lead2Notes.push( 0 )
             row2Lead3Volume.push( 1 )
-            row2Lead3Notes.push( 70 )
+            row2Lead3Notes.push( 50 )
             row2KickVolume.push( 0 )
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
@@ -360,7 +360,7 @@
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 1 )
-            row2BassNotes.push( 70 )
+            row2BassNotes.push( 50 )
             row2Lead2Volume.push( 0 )
             row2Lead2Notes.push( 0 )
             row2Lead3Volume.push( 0 )
@@ -427,7 +427,7 @@
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1g
             row3Lead1Volume.push( 1 )
-            row3Lead1Notes.push( 70 )
+            row3Lead1Notes.push( 50 )
             row3BassVolume.push( 0 )
             row3BassNotes.push( 0 )
             row3Lead2Volume.push( 0 )
@@ -464,7 +464,7 @@
             row3BassVolume.push( 0 )
             row3BassNotes.push( 0 )
             row3Lead2Volume.push( 1 )
-            row3Lead2Notes.push( 70 )
+            row3Lead2Notes.push( 50 )
             row3Lead3Volume.push( 0 )
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
@@ -499,7 +499,7 @@
             row3Lead2Volume.push( 0 )
             row3Lead2Notes.push( 0 )
             row3Lead3Volume.push( 1 )
-            row3Lead3Notes.push( 70 )
+            row3Lead3Notes.push( 50 )
             row3KickVolume.push( 0 )
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
@@ -528,7 +528,7 @@
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 1 )
-            row3BassNotes.push( 70 )
+            row3BassNotes.push( 50 )
             row3Lead2Volume.push( 0 )
             row3Lead2Notes.push( 0 )
             row3Lead3Volume.push( 0 )
@@ -589,7 +589,7 @@
 
       this.track = new track()
       this.track.saw().beat( 3 ).vol( volArr ).notes( notesArr )
-      this.track.adsr( .05, 7, 1, 1 )
+      this.track.adsr( 3, 1, 1, 3 )
         //Lead1
 
     }
@@ -607,14 +607,14 @@
       console.log( volArr, notesArr );
       this.track = new track()
       this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
-      this.track.adsr32( .05, .5, .7, .5 )
+      this.track.adsr32( 3, .5, .7, 3 )
         //Bass
     }
 
     function Lead2Track( volArr, notesArr ) {
       this.track = new track()
       this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
-      this.track.adsr32( .08, 1, .5, .5 )
+      this.track.adsr32( 3, 1, .5, 3 )
         //Lead2
 
     }
@@ -622,7 +622,7 @@
     function Lead3Track( volArr, notesArr ) {
       this.track = new track()
       this.track.square().beat( 3 ).vol( volArr ).notes( notesArr )
-      this.track.adsr32( .1, 1, .5, 2 )
+      this.track.adsr32( 3, 1, .5, 3 )
 
 
       //Lead3
