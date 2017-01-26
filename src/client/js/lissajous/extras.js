@@ -41,8 +41,11 @@ function _m( value, iterations ) {
 
 var testSamples = [];
 loadSounds( [
-    './samples/silence.wav',
+    './samples/lead.wav',
+    './samples/bass.wav',
     './samples/snare.wav',
+    './samples/hihat.wav',
+    './samples/kick.wav',
   ],
   function( list ) {
     testSamples = list;

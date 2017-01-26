@@ -60,11 +60,33 @@
   padding-bottom: 3%;
 }
 
-.indexBG {
-  background-image: url(img/headphone.jpg);
-  background-color: #000;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
+#logo {
+  position: fixed;
+  float: center;
+
+}
+
+.concept{
+  position: fixed;
+}
+
+#login{
+  position: fixed;
+  float: center;
+  background-color: transparent;
+    border: 2px solid white;
+    padding: 15px 32px;
+    text-transform: none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.navbar {
+   background-color: black;
+   position: fixed;
 }
