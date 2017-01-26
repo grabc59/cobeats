@@ -17,8 +17,13 @@
       })
       .state({
         name: 'user-login',
-        url:'/login',
+        url: '/login',
         component: 'userLogin',
+      })
+      .state({
+        name: 'about',
+        url: '/about',
+        component: 'about',
       })
       .state({
         name: 'main',
