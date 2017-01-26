@@ -18,6 +18,7 @@
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
       document.getElementById( 'current-color' ).style.backgroundColor = vm.currentColor;
+
     }
 
     function applyColor( event ) {
