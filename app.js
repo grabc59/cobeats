@@ -136,6 +136,16 @@ io.sockets.on('connection', function(socket) {
       person: socket.username,
     });
   });
+
+  //////////// USER IS TYPING EVENT
+  ///// pixelInfo is an object containing the pixel ID and color (easel.component.js)
+  socket.on("pixel click", function(pixelInfo) {
+    io.sockets.emit("update pixel", {
+      pixelInfo
+    });
+  });
+
+
 });
 
 server.listen(port, () => {

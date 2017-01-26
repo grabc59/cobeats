@@ -7,7 +7,9 @@
       templateUrl: 'js/main/easel/easel.template.html'
     } )
 
-  function controller() {
+  controller.$inject = ['socket'];
+
+  function controller(socket) {
     const vm = this;
 
     vm.selectColor = selectColor;
@@ -23,16 +25,24 @@
     }
 
     function applyColor( event, index ) {
-      console.log(index, vm.currentColor);
+      console.log(index, vm.currentColor, event);
       event.target.style.backgroundColor = vm.currentColor;
 
       /////// SOCKET EVENT - PIXEL CLICK
       let pixelInfo = {
         index,
-        currentColor = vm.currentColor
+        currentColor: vm.currentColor
       };
       socket.emit('pixel click', pixelInfo);
     }
+
+    /////// SOCKET EVENT - UPDATE PIXEL
+    //// another user clicked a pixel
+    socket.on('update pixel', function(data) {
+      // console.log('SOCKET EVENT', data, angular.element(document.getElementById(`#${data}`)));
+      console.log(data.pixelInfo.index)
+      document.getElementById(data.pixelInfo.index).setAttribute("style", `background-color: ${data.pixelInfo.currentColor}`);
+    });
 
     function pixelArray() {
       return new Array( 48 );
