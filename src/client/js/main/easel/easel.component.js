@@ -16,7 +16,7 @@
     vm.applyColor = applyColor;
     vm.currentColor = '#FFFFFF'
     vm.pixelArray = pixelArray;
-    vm.colorPallette = [ "#FFFFFF", "#C0C0C0", "#808080", "#404040" ];
+    vm.colorPallette = [ "#96EAFF", "#0DCFFF", "#05596E", "#586E1D", "#CBFC42", "#E6FCA9", "#F0A1EA", "#F03CE4", "#691A63", "#9E5603", "#FF8A05", "#FFB663", "#262626" ];
     vm.playPixels = playPixels;
 
     function selectColor( event ) {
@@ -66,7 +66,7 @@
       // iterate over first row, create first sound layer
       for ( var i = 0; i < 16; i++ ) {
         switch ( true ) {
-          case document.getElementById( i ).style.backgroundColor === 'Lead1A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(5, 89, 110)': //lead1a
             row1Lead1Volume.push( 1 )
             row1Lead1Notes.push( 60 )
             row1BassVolume.push( 0 )
@@ -77,7 +77,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead1C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(13, 207, 255)': //lead1c
             row1Lead1Volume.push( 1 )
             row1Lead1Notes.push( 64 )
             row1BassVolume.push( 0 )
@@ -88,7 +88,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead1G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1g
             row1Lead1Volume.push( 1 )
             row1Lead1Notes.push( 70 )
             row1BassVolume.push( 0 )
@@ -99,7 +99,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(88, 110, 29)': //lead2a
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -110,7 +110,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(203, 252, 66)': //lead2c
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -121,7 +121,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(230, 252, 169)': //lead2g
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -132,7 +132,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(105, 26, 99)': //lead3a
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -143,7 +143,7 @@
             row1Lead3Notes.push( 60 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(240, 60, 228)':
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -154,7 +154,7 @@
             row1Lead3Notes.push( 64 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(240, 161, 234)': //lead3g
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -165,7 +165,7 @@
             row1Lead3Notes.push( 70 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassA':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 1 )
@@ -176,7 +176,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassC':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(255, 138, 5)': //bassc
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 1 )
@@ -187,7 +187,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassG':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(255, 182, 99)': //bassg
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 1 )
@@ -198,7 +198,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(128, 128, 128)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -235,7 +235,7 @@
       var row2KickVolume = [];
       for ( var i = 16; i < 32; i++ ) {
         switch ( true ) {
-          case document.getElementById( i ).style.backgroundColor === 'rgb(64, 64, 64)': //lead1A
+          case document.getElementById( i ).style.backgroundColor === 'rgb(5, 89, 110)': //lead1A
             row2Lead1Volume.push( 1 )
             row2Lead1Notes.push( 60 )
             row2BassVolume.push( 0 )
@@ -246,7 +246,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead1C': //lead1C
+          case document.getElementById( i ).style.backgroundColor === 'rgb(13, 207, 255)': //lead1C
             row2Lead1Volume.push( 1 )
             row2Lead1Notes.push( 64 )
             row2BassVolume.push( 0 )
@@ -257,7 +257,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead1G': //lead1G
+          case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1G
             row2Lead1Volume.push( 1 )
             row2Lead1Notes.push( 70 )
             row2BassVolume.push( 0 )
@@ -268,7 +268,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(88, 110, 29)': //lead2a
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -279,7 +279,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(203, 252, 66)': //lead2c
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -290,7 +290,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(230, 252, 169)': //lead2g
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -301,7 +301,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(105, 26, 99)': //lead3a
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -312,7 +312,7 @@
             row2Lead3Notes.push( 60 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(240, 60, 228)': //lead3c
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -323,7 +323,7 @@
             row2Lead3Notes.push( 64 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(240, 161, 234)': //lead3g
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -334,7 +334,7 @@
             row2Lead3Notes.push( 70 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassA':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 1 )
@@ -345,7 +345,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassC':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(255, 138, 5)': //bassc
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 1 )
@@ -356,7 +356,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(192, 192, 192)': //bassG
+          case document.getElementById( i ).style.backgroundColor === 'rgb(255, 182, 99)': //bassG
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 1 )
@@ -367,7 +367,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(128, 128, 128)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -403,7 +403,7 @@
       var row3KickVolume = [];
       for ( var i = 32; i < 48; i++ ) {
         switch ( true ) {
-          case document.getElementById( i ).style.backgroundColor === 'Lead1A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(5, 89, 110)': //lead1a
             row3Lead1Volume.push( 1 )
             row3Lead1Notes.push( 60 )
             row3BassVolume.push( 0 )
@@ -414,7 +414,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead1C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(13, 207, 255)': //lead1c
             row3Lead1Volume.push( 1 )
             row3Lead1Notes.push( 64 )
             row3BassVolume.push( 0 )
@@ -425,7 +425,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead1G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1g
             row3Lead1Volume.push( 1 )
             row3Lead1Notes.push( 70 )
             row3BassVolume.push( 0 )
@@ -436,7 +436,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(88, 110, 29)': //lead2a
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -447,7 +447,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(203, 252, 66)': //lead2c
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -458,7 +458,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead2G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(230, 252, 169)': //lead2g
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -469,7 +469,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3A':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(105, 26, 99)': //lead3a
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -480,7 +480,7 @@
             row3Lead3Notes.push( 60 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3C':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(240, 60, 228)': //lead3c
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -491,7 +491,7 @@
             row3Lead3Notes.push( 64 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Lead3G':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(240, 161, 234)': //lead3G
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -502,7 +502,7 @@
             row3Lead3Notes.push( 70 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassA':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 1 )
@@ -513,7 +513,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassC':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(255, 138, 5)': //bassC
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 1 )
@@ -524,7 +524,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'BassG':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(255, 182, 99)': //bassG
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 1 )
@@ -535,7 +535,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'Kick':
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
