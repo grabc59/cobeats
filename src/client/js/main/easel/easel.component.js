@@ -14,6 +14,7 @@
     vm.applyColor = applyColor;
     vm.currentColor = '#FFFFFF'
     vm.pixelArray = pixelArray;
+    vm.colorPallette = ["#FFFFFF", "#C0C0C0", "#808080", "#404040"];
 
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
@@ -22,11 +23,14 @@
     }
 
     function applyColor( event ) {
+      console.log(event);
       event.target.style.backgroundColor = vm.currentColor;
     }
 
     function pixelArray() {
       return new Array( 48 );
     }
+
+    var colorPallette = ["#FFFFFF", "#C0C0C0", "#808080", "#404040"];
   }
 }() );
