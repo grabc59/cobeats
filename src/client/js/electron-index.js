@@ -1,20 +1,20 @@
 $(function() {
     // Get handle to the chat div 
-    var $chatWindow = $('#messages');
+    // var $chatWindow = $('#messages');
 
     // Manages the state of our access token we got from the server
-    var accessManager;
+    // var accessManager;
 
     // Our interface to the IP Messaging service
-    var messagingClient;
+    // var messagingClient;
 
     // A handle to the "general" chat channel - the one and only channel we
     // will have in this sample app
-    var generalChannel;
+    // var generalChannel;
 
     // The server will assign the client a random username - store that value
     // here
-    var username;
+    // var username;
 
     // Helper function to print info messages to the chat window
     function print(infoMessage, asHtml) {
@@ -29,16 +29,25 @@ $(function() {
 
     // Helper function to print chat message to the chat window
     function printMessage(fromUser, message) {
-        var $user = $('<span class="username">').text(fromUser + ':');
         if (fromUser === username) {
             $user.addClass('me');
-        }
-        var $message = $('<span class="message">').text(message);
-        var $container = $('<div class="message-container">');
-        $container.append($user).append($message);
-        $chatWindow.append($container);
-        $chatWindow.scrollTop($chatWindow[0].scrollHeight);
-    }
+        } else {
+            new Notification('New Message', {
+                body: fromUser + ': ' + message
+            });
+        };
+    };
+    // function printMessage(fromUser, message) {
+    //     var $user = $('<span class="username">').text(fromUser + ':');
+    //     if (fromUser === username) {
+    //         $user.addClass('me');
+    //     }
+    //     var $message = $('<span class="message">').text(message);
+    //     var $container = $('<div class="message-container">');
+    //     $container.append($user).append($message);
+    //     $chatWindow.append($container);
+    //     $chatWindow.scrollTop($chatWindow[0].scrollHeight);
+    // }
 
     // Alert the user they have been assigned a random username
     // print('Logging in...');
