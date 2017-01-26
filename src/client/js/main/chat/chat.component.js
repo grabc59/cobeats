@@ -64,10 +64,14 @@
         socket.emit('send message', newMessage.content);
 
         newMessage.user_id = vm.user_id;
+        console.log("about to post message", newMessage);
         $http.post('/messages', newMessage)
           .then(function (response) {
             vm.newMessage.content = "";
-          });
+          })
+          .catch(function(error) {
+            console.error(error);
+          })
         // when a message is submitted, clear the 'typing' timeout
         // vm.clearTimeout(timeout);
         // vm.timeout = setTimeout(timeoutFunction, 0);
@@ -94,7 +98,7 @@
         console.log('new message: ', data)
         vm.chatMessages.push(data);
         vm.messageTimeout();
-        vm.electronAlert(socket.username, data);
+        vm.electronAlert(data.username, data.content);
       });
 
       
