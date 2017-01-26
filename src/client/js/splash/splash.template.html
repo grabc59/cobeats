@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="styles.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <title>coBeats</title>
-</head>
+
+<div class="navbar">
+<div class= "concept" id= "logo" ng-init= "logo= './img/Logo_concept.png'" ></div>
+<div ng-init="headphone='./img/headphone.jpg'">
+<button class ="center" id= "login" ng-click="changeLink()" ui-sref= "main">Login</button>
+<img ng-src="{{headphone}}" height= "710px" width= "1440px">
+<img ng-src="{{logo}}" height= "125px" width= "125px">
+</div>
 
 <body>
     <div class="navbar">
@@ -16,15 +15,6 @@
             <button class="center" id="login" ng-click="changeLink()" ui-sref="user-login">Login</button>
             <img ng-src="{{headphone}}" height="790px" width="1440px">
             <img ng-src="{{logo}}" height="125px" width="125px">
-
+          </div>
         </div>
-    </div>
-
-    <!-- <div ng-controller= "splash">
-    <img src= "{{img/headphone.jpg}}" style = "height: 780px" width "1440px"/>
-  </div> -->
-
-    <!-- <user-login></user-login> -->
-</body>
-
-</html>
+    </body>

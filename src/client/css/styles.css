@@ -64,6 +64,7 @@
   position: fixed;
   float: center;
 
+
 }
 
 .concept{
@@ -74,8 +75,8 @@
   position: fixed;
   float: center;
   background-color: transparent;
-    border: 2px solid white;
-    padding: 15px 32px;
+    border: 3px solid white;
+    padding:14px 50px;
     text-transform: none;
     text-align: center;
     text-decoration: none;
@@ -85,6 +86,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 .navbar {
    background-color: black;
