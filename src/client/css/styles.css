@@ -111,5 +111,5 @@
 }
 .navbar {
    background-color: black;
-   position: fixed;
+   position: static;
 }
