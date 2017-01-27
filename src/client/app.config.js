@@ -15,16 +15,16 @@
         url: '/',
         component: 'splash',
       })
-      .state({
-        name: 'user-login',
-        url: '/login',
-        component: 'userLogin',
-      })
-      .state({
-        name: 'about',
-        url: '/about',
-        component: 'about',
-      })
+      // .state({
+      //   name: 'user-login',
+      //   url: '/login',
+      //   component: 'userLogin',
+      // })
+      // .state({
+      //   name: 'about',
+      //   url: '/about',
+      //   component: 'about',
+      // })
       .state({
         name: 'main',
         url: '/main',

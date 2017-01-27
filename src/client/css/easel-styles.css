@@ -3,7 +3,6 @@ html{
 }
 #easel{
   margin: auto;
-  float: left;
   background-color: #EDEDED;
   display: flex;
   width: min-content;
@@ -127,6 +126,11 @@ p {
   display: table;
   clear: both;
 }
-/*.easel_container{
-  float: right;
-}*/
+.easel_container{
+  position: relative;
+}
+.easel_row {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

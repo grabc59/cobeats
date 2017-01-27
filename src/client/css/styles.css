@@ -1,3 +1,8 @@
+body {
+  background-image: url('/img/footer_lodyas.png');
+  font-family: 'Permanent Marker', cursive;
+}
+
 .border {
   border: 1px solid #000;
 }
@@ -75,6 +80,16 @@
 #logo {
   position: fixed;
   float: center;
+}
+.hero {
+  color: white;
+  font-size: 5em;
+  display: inline;
+}
+.hero:hover {
+  color: blue;
+  text-decoration: none;
+
 }
 
 .concept{
