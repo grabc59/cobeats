@@ -4,7 +4,7 @@ html {
 
 #easel {
     margin: auto;
-    background-color: #EDEDED;
+    background-color: #5C5C5C;
     display: flex;
     width: min-content;
     /*flex-direction: column;*/
@@ -12,9 +12,9 @@ html {
     flex-basis: auto;
     align-content: center;
     padding: 3%;
-    border: 2px solid #757575;
+    border: 1px solid #202020;
     border-radius: 10px;
-    box-shadow: 4px 4px 3px 2px #424242;
+
 }
 
 .row {
@@ -38,7 +38,7 @@ html {
 
 #grid-container {
     margin: 0;
-    width: 81rem;
+    width: 52.4rem;
     padding: 0;
     flex-flow: row;
     flex-wrap: wrap;
@@ -54,8 +54,8 @@ html {
 
 .pixel-div {
     background-color: white;
-    min-width: 5rem;
-    min-height: 5rem;
+    min-width: 3.25rem;
+    min-height: 3.25rem;
     border-top: none;
     border-right: .1rem solid #ADADAD;
     border-bottom: .1rem solid #ADADAD;
@@ -74,8 +74,9 @@ html {
     margin-right: auto;
     margin-top: 1.5rem;
     margin-bottom: 0;
-    border: 2px solid #757575;
+    border: 2px solid #424242;
     border-radius: 1rem;
+
 }
 
 .palette-row {
@@ -89,10 +90,10 @@ html {
 .color-well {
     width: 2.8rem;
     height: 2.8rem;
-    margin: .25rem;
+    padding: .25rem;
     border: .2rem solid #424242;
     border-radius: 1rem;
-    float: left;
+    margin: auto;
 }
 
 #picker-container {
