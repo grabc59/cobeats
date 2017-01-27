@@ -38,7 +38,7 @@ html {
 
 #grid-container {
     margin: 0;
-    width: 81rem;
+    width: 52.4rem;
     padding: 0;
     flex-flow: row;
     flex-wrap: wrap;
@@ -54,8 +54,8 @@ html {
 
 .pixel-div {
     background-color: white;
-    min-width: 5rem;
-    min-height: 5rem;
+    min-width: 3.25rem;
+    min-height: 3.25rem;
     border-top: none;
     border-right: .1rem solid #ADADAD;
     border-bottom: .1rem solid #ADADAD;
@@ -76,6 +76,7 @@ html {
     margin-bottom: 0;
     border: 2px solid #757575;
     border-radius: 1rem;
+
 }
 
 .palette-row {
@@ -89,10 +90,10 @@ html {
 .color-well {
     width: 2.8rem;
     height: 2.8rem;
-    margin: .25rem;
+    padding: .25rem;
     border: .2rem solid #424242;
     border-radius: 1rem;
-    float: left;
+    margin: auto;
 }
 
 #picker-container {
