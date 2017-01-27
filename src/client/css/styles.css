@@ -32,26 +32,10 @@ body {
 }*/
 
 .flex {
-<<<<<<< HEAD
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: stretch;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: stretch;
-=======
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
->>>>>>> 3511d73d69dcbf5891a38be582b1d8a80ef64441
 }
 
 .sequence {
@@ -65,48 +49,6 @@ body {
     align-items: center;
 }
 
-<<<<<<< HEAD
-.beat {
-    border: 1px solid;
-    background-color: #bbb;
-    width: 5%;
-    height: 0;
-    padding-bottom: 3%;
-}
-
-.current {
-    border: 1px solid;
-    /*background: rgba(87, 164, 226, 0.5) !important;*/
-    background: #57a4e2 !important;
-    width: 5%;
-    height: 0;
-    padding-bottom: 3%;
-}
-
-.active-class {
-    border: 1px solid;
-    /*background: rgba(242, 255, 80, 0.5);*/
-    background: #f2ff50;
-    width: 5%;
-    height: 0;
-    padding-bottom: 3%;
-}
-
-/*#logo {
-    position: fixed;
-    float: center;
-}*/
-
-/*#mainLogo {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
-  .vertical-align {
-    vertical-align: top;
-}*/
-
-=======
 #logo {
 
   padding: 0;
@@ -114,10 +56,6 @@ body {
   width: 20%;
 }
 
-  position: fixed;
-  float: center;
-}
->>>>>>> 3511d73d69dcbf5891a38be582b1d8a80ef64441
 .hero {
     color: white;
     font-size: 5em;
@@ -158,11 +96,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-<<<<<<< HEAD
-.navbar {
-    background-color: black;
-    position: static;
-=======
 /* hero */
 #hero {
 	background-image: url(../img/headphone.jpg);
@@ -237,5 +170,3 @@ body {
 		text-align: center;
 		text-transform: uppercase;
 	}
->>>>>>> 3511d73d69dcbf5891a38be582b1d8a80ef64441
-}
