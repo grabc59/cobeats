@@ -19,6 +19,9 @@
     vm.pixelArray = pixelArray;
     vm.colorPallette = [ "#96EAFF", "#0DCFFF", "#05596E", "#586E1D", "#CBFC42", "#E6FCA9", "#F0A1EA", "#F03CE4", "#691A63", "#9E5603", "#FF8A05", "#FFB663", "#262626" ];
     vm.playPixels = playPixels;
+    vm.setOrResetTracks = setOrResetTracks;
+    var tracks;
+    var pixelMusic = new group();
     // vm.showPopover = false;
     // vm.triggerPopover = triggerPopover;
 
@@ -87,7 +90,6 @@
       var row1Lead3Volume = [];
       var row1Lead3Notes = [];
       var row1KickVolume = [];
-      // var track5Notes = [];
 
       // iterate over first row, create first sound layer
       for ( var i = 0; i < 16; i++ ) {
@@ -606,7 +608,46 @@
       var row2Kick = new KickTrack( row2KickVolume )
       var row3Kick = new KickTrack( row3KickVolume )
 
-      var pixelMusic = new group( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick );
+      // var pixelMusic = new group( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick );
+      setOrResetTracks( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick )
+      tracks = row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick
+
+      //reset arrays
+      row1Lead1Volume = [];
+      row1Lead1Notes = [];
+      row1BassVolume = [];
+      row1BassNotes = [];
+      row1Lead2Volume = [];
+      row1Lead2Notes = [];
+      row1Lead3Volume = [];
+      row1Lead3Notes = [];
+      row1KickVolume = [];
+      row2Lead1Volume = [];
+      row2Lead1Notes = [];
+      row2BassVolume = [];
+      row2BassNotes = [];
+      row2Lead2Volume = [];
+      row2Lead2Notes = [];
+      row2Lead3Volume = [];
+      row2Lead3Notes = [];
+      row2KickVolume = [];
+      row3Lead1Volume = [];
+      row3Lead1Notes = [];
+      row3BassVolume = [];
+      row3BassNotes = [];
+      row3Lead2Volume = [];
+      row3Lead2Notes = [];
+      row3Lead3Volume = [];
+      row3Lead3Notes = [];
+      row3KickVolume = [];
+    }
+
+    function setOrResetTracks() {
+      if ( arguments.length === 0 ) {
+        pixelMusic.remove( tracks );
+      } else {
+        pixelMusic.add( arguments );
+      }
     }
 
     function Lead1Track( volArr, notesArr ) {
