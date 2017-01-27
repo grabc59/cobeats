@@ -1,41 +1,44 @@
 <!-- <h1>chat component template</h1> -->
 <!-- <hr> -->
 <!--<div class= "chat_container">-->
-   <div class="row" id="messageArea">
-        <div class="col-md-2">
+<div class="row" id="messageArea">
+    <!-- <div class="col-md-2">
+        </div> -->
+    <!-- <div class="col-md-10"> -->
+    <!-- <div class="col-md-3"> -->
+    <div class="row">
+        <div class="well online_users">
+            <h3>Online Users</h3>
+            <ul class="list-group" id="users">
+                <li ng-repeat="user in $ctrl.connected_users track by $index" class="list-group-item" ng-class="{active: user == $ctrl.current_user}">{{user}}
+                </li>
+            </ul>
         </div>
-       <div class="col-md-10">
-        <div class="col-md-3">
-          <div class="well online_users">
-              <h3>Online Users</h3>
-              <ul class="list-group" id="users">
-                  <li ng-repeat="user in $ctrl.connected_users track by $index" class="list-group-item" ng-class="{active: user == $ctrl.current_user}">{{user}}
-                  </li>
-              </ul>
-          </div>
+    </div>
+    <!-- </div> -->
+    <!-- <div class="col-md-7"> -->
+    <div class="row">
+        <div id="messageHistory">
+            <div ng-init="$ctrl.messageTimeout()" ng-repeat="message in $ctrl.chatMessages | orderBy: message.created_at" class="well">
+                <strong>{{message.username}} :</strong> {{message.content}}
+                <div><small>{{message.created_at | date:'medium'}}</small></div>
+            </div>
         </div>
-       <div class="col-md-7">
-          <div id="messageHistory">
-              <div ng-init="$ctrl.messageTimeout()" ng-repeat="message in $ctrl.chatMessages | orderBy: message.created_at" class="well">
-                  <strong>{{message.username}} :</strong>
-                  {{message.content}}
-                  <div><small>{{message.created_at | date:'medium'}}</small></div>
-              </div>
-          </div>
+    </div>
 
-          <div id="updates"></div>
-          <div class="chat" id="chat">
-              <form id="messageForm" ng-submit="$ctrl.sendMessage($ctrl.newMessage)">
-                  <div class="form-group">
-                      <input type='text' ng-model="$ctrl.newMessage.content" class="form-control" id="message">
-                      <input id='chat_submit' type="submit" class="btn btn-primary" value="Send Message" />
-                  </div>
-              </form>
-          </div>
-        </div>
+    <div id="updates"></div>
+    <div class="chat" id="chat">
+        <form id="messageForm" ng-submit="$ctrl.sendMessage($ctrl.newMessage)">
+            <div class="form-group">
+                <input type='text' ng-model="$ctrl.newMessage.content" class="form-control" id="message">
+                <input id='chat_submit' type="submit" class="btn btn-primary" value="Send Message" />
+            </div>
+        </form>
+    </div>
+    <!-- </div> -->
 
-   </div>
-   <!--<div class="col-md-1">
+    <!-- </div> -->
+    <!--<div class="col-md-1">
         </div>-->
 </div>
 <!--</  div>-->
