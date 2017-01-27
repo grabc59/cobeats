@@ -1,8 +1,11 @@
 <!-- <h1>chat component template</h1> -->
 <!-- <hr> -->
-<div class= "chat_container">
-  <!-- <div class="row" id="messageArea"> -->
-      <!-- <div class="col-md-3" style="height: 100%"> -->
+<!--<div class= "chat_container">-->
+   <div class="row" id="messageArea"> 
+        <div class="col-md-2"> 
+        </div>
+       <div class="col-md-10"> 
+        <div class="col-md-3"> 
           <div class="well online_users">
               <h3>Online Users</h3>
               <ul class="list-group" id="users">
@@ -10,16 +13,16 @@
                   </li>
               </ul>
           </div>
-      <!-- </div> -->
-      <!-- <div class="col-md-3"> -->
+        </div> 
+       <div class="col-md-7">
           <div id="messageHistory">
               <div ng-init="$ctrl.messageTimeout()" ng-repeat="message in $ctrl.chatMessages | orderBy: message.created_at" class="well">
                   <strong>{{message.username}}</strong>
                   {{message.content}}
                   <div><small>{{message.created_at | date:'medium'}}</small></div>
-
               </div>
           </div>
+          
           <div id="updates"></div>
           <div class="chat" id="chat">
               <form id="messageForm" ng-submit="$ctrl.sendMessage($ctrl.newMessage)">
@@ -29,6 +32,10 @@
                   </div>
               </form>
           </div>
-      <!-- </div> -->
-  <!-- </div> -->
-</div>
+        </div>
+       
+   </div> 
+   <!--<div class="col-md-1"> 
+        </div>-->
+</div> 
+<!--</  div>-->

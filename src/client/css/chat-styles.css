@@ -12,14 +12,14 @@
   height: 300px;
 }
 #messageForm {
-  width: 78.1%;
-  float: right;
+  /*width: 78.1%;*/
+  /*float: right;*/
 }
 #chat_submit {
-  float: right;
+  /*float: right;*/
 }
 #message {
-  width: 85%;
+  width: 75%;
   float: left;
 }
 #updates {
@@ -30,7 +30,7 @@
 
 }
 .online_users {
-  width: 20%;
-  margin: 0px 20px 0 0;
+  /*width: 20%;*/
+  margin-top: 20px;
   float: left;
 }
