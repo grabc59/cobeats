@@ -25,10 +25,9 @@
               <form id="messageForm" ng-submit="$ctrl.sendMessage($ctrl.newMessage)">
                   <div class="form-group">
                       <label>Enter a message</label>
-                      <textarea ng-model="$ctrl.newMessage.content" class="form-control" id="message"></textarea>
+                      <input ng-model="$ctrl.newMessage.content" class="form-control" id="message"></input>
                       <br/>
-
-                      <input type="submit" class="btn btn-primary" value="Send Message" />
+                      <button id="sendMessageBtn" class="btn btn-primary" type="submit">Send Message</button>
                   </div>
               </form>
           </div>
