@@ -22,24 +22,25 @@
     vm.showPopover = false;
     vm.triggerPopover = triggerPopover;
 
-    function triggerPopover (data) {
-      console.log(data);
-      $( "#" + data.index ).popover({
-        title: data.username,
-        placement: 'bottom',
-        delay: {
-            show: 0,
-            hide: 0
-        },
-      });
+    ///// attempted popover 
+    // function triggerPopover (data) {
+    //   console.log(data);
+    //   $( "#" + data.index ).popover({
+    //     title: data.username,
+    //     placement: 'bottom',
+    //     delay: {
+    //         show: 0,
+    //         hide: 0
+    //     },
+    //   });
       // console.log("done");
+    // 
+    //   setTimeout(function () {
+    //       console.log('timeout')
+    //       $('.popover').fadeOut('slow');
+    //   }, 5000);
 
-      setTimeout(function () {
-          console.log('timeout')
-          $('.popover').fadeOut('slow');
-      }, 5000);
-
-    } 
+    // } 
 
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
@@ -67,7 +68,7 @@
       console.log( data.index )
       document.getElementById( data.index ).setAttribute( "style", `background-color: ${data.currentColor}` );
       ////// trigger popover
-      vm.triggerPopover(data);
+      // vm.triggerPopover(data);
     } );
 
     function pixelArray() {
