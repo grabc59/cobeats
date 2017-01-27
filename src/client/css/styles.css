@@ -100,7 +100,7 @@
 /* hero */
 
 #hero {
-    background-image: url(../img/headphone.jpg);
+    background-image: url(../img/headphone-blur2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 200px 0;
@@ -115,7 +115,7 @@
 }
 
 #hero .overlay {
-    background-color: #f8e71c;
+    /*background-color: #f8e71c;*/
     width: 100%;
     height: 100%;
     position: absolute;
