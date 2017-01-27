@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+
+<head>
     <base href="/">
     <meta charset="utf-8">
     <title>coBeats</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+        <!-- BASE SWATCH -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!-- Custom css -->
+        <!-- SLATE SWATCH-->
+    <!--<link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css" crossorigin="anonymous">-->
 
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/chat-styles.css">
-  <link rel="stylesheet" href="/css/main-styles.css">
-  <link rel="stylesheet" href="/css/easel-styles.css">
-  </head>
-  <body>
+        <!-- CYBORG SWATCH -->
+    <!--<link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css" crossorigin="anonymous">-->
+
+        <!-- DARKLY SWATCH -->
+    <!--<link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css" crossorigin="anonymous">-->
+
+    <!-- Custom css -->
+
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/chat-styles.css">
+        <link rel="stylesheet" href="/css/main-styles.css">
+        <link rel="stylesheet" href="/css/easel-styles.css">
+
+    <!-- Google Fonts -->
+        <!-- BASE -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">-->
+        <!-- PERMANENT MARKER -->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
+
+</head>
+
+<body>
     <header>
         <!-- nav-wrapper -->
-        <!-- <nav role="navigation" id="nav-header">
-            <div class="nav-wrapper container navContainer">
-                <a id="mainLogo" href="index.html" class="brand-logo"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a> -->
-        <!-- <nav>
-            <div>
-                <a id="mainLogo" href="index.html"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"></a>
-            </div> -->
-            <!-- end nav-wrapper -->
-        <!-- </nav> -->
+         <nav role="navigation" id="nav-header">
+            <div class="nav-wrapper navContainer">
+                <a id="mainLogo" ui-sref="splash" class="brand-logo"><img src="img/Logo_concept.png" alt="cobeats" height="70px" width="70px" class="-small"><h1 class="hero">   COBEATS</h1></a>
+              </div>
+         </nav>
     </header>
-      <!-- main app -->
+    <!-- main app -->
 
-      <ui-view></ui-view>
+    <ui-view></ui-view>
 
 
     <!-- ANGULAR -->
@@ -79,8 +95,8 @@
     <!-- End Lissajous source files -->
 
 
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Init -->
@@ -92,30 +108,32 @@
 
     <!-- COMPONENTS -->
 
-      <!-- SPLASH -->
+    <!-- SPLASH -->
     <script type="text/javascript" src="/js/splash/splash.component.js"></script>
-        <!-- USER LOGIN -->
+    <!-- USER LOGIN -->
     <script type="text/javascript" src="/js/splash/user-login/user-login.component.js"></script>
-
-      <!-- MAIN -->
+    <!-- ABOUT -->
+    <!--<script type="text/javascript" src="/js/about/about.component.js"></script>-->
+    <!-- MAIN -->
     <script type="text/javascript" src="/js/main/main.component.js"></script>
-        <!-- CHAT -->
+    <!-- CHAT -->
     <script type="text/javascript" src="/js/main/chat/chat.component.js"></script>
-        <!-- SEQUENCER COMPONENT -->
+    <!-- SEQUENCER COMPONENT -->
     <script type="text/javascript" src="/js/sequencer/sequencer.component.js"></script>
-
-        <!-- EASEL COMPONENT -->
+    <!-- EASEL COMPONENT -->
     <script type="text/javascript" src="/js/main/easel/easel.component.js"></script>
 
     <!-- SOCKETS -->
-      <!-- NPM MODULE -->
+    <!-- NPM MODULE -->
     <script src="/socket.io/socket.io.js"></script>
       <!-- CLIENT JS -->
-    <script src="/js/chat-script.js"></script>
+    <!--<script src="/js/chat-script.js"></script>-->
       <!-- SOCKET SERVICE -->
     <script src="/js/socket.service.js"></script>
 
-    <!-- EASEL -->
-    <!--<script src="/js/easel-script.js"></script>-->
-  </body>
+    <!-- UI BOOTSTRAP -->
+    <script data-require="ui-bootstrap@0.10.0" data-semver="0.10.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+
+</body>
+
 </html>

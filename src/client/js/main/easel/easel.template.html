@@ -1,20 +1,21 @@
-  <div id="easel" >
-    <div id="grid-container">
-      <!-- populate with pixel-rows of pixel-divs -->
-      <div ng-click="$ctrl.applyColor($event, $index)" id="{{$index}}" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
-    </div>
-    <div class="row">
+<div class="easel_container">
+    <div id="easel">
+        <div id="grid-container">
+            <!-- populate with pixel-rows of pixel-divs -->
+            <div ng-click="$ctrl.applyColor($event, $index)" id="{{$index}}" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
+        </div>
+        <div class="row">
 
-      <div id="current-color"></div>
-    </div>
-    <div id="palette" ng-click="$ctrl.selectColor($event)">
-      <div class="palette-row" id="pal-row">
-        <div class="color-well" style="background-color: {{color}}" ng-repeat="color in $ctrl.colorPallette"></div>
-      </div>
-      <div class="row">
-        <button ng-click="$ctrl.playPixels()">Play It!</button>
-      </div>
+            <div id="current-color"></div>
+        </div>
+        <div id="palette" ng-click="$ctrl.selectColor($event)">
+            <div class="palette-row" id="pal-row">
+                <div class="color-well" style="background-color: {{color}}" ng-repeat="color in $ctrl.colorPallette"></div>
+            </div>
+            <div class="row" style="text-align: center;">
+                <button id="play" ng-click="$ctrl.playPixels()">Play It!</button>
+            </div>
+        </div>
 
     </div>
-
-  </div>
+</div>

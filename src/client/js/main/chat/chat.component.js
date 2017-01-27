@@ -30,6 +30,20 @@
       ///////////////////////////////////
       /////// CONTROLLER FUNCTIONS
       ///////////////////////////////////
+
+       vm.electronAlert = function (fromUser, message) {
+        if (fromUser === vm.current_user) {
+            console.log("message from me")
+            // $user.addClass('me');
+        } else {
+            console.log("MAKE AN ELECTRON NOTIFICATION");
+            new Notification('New Message', {
+                body: fromUser + ': ' + message
+            });
+        };
+    };
+
+
       vm.getMessages = function (){
         return $http.get('/messages')
           .then(function(data) {
@@ -50,10 +64,14 @@
         socket.emit('send message', newMessage.content);
 
         newMessage.user_id = vm.user_id;
+        console.log("about to post message", newMessage);
         $http.post('/messages', newMessage)
           .then(function (response) {
             vm.newMessage.content = "";
-          });
+          })
+          .catch(function(error) {
+            console.error(error);
+          })
         // when a message is submitted, clear the 'typing' timeout
         // vm.clearTimeout(timeout);
         // vm.timeout = setTimeout(timeoutFunction, 0);
@@ -80,7 +98,10 @@
         console.log('new message: ', data)
         vm.chatMessages.push(data);
         vm.messageTimeout();
+        vm.electronAlert(data.username, data.content);
       });
+
+      
 
 
 

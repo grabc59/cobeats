@@ -12,27 +12,51 @@
   function controller( socket ) {
     const vm = this;
 
+    vm.currentUser = localStorage.username;
     vm.selectColor = selectColor;
     vm.applyColor = applyColor;
     vm.currentColor = '#FFFFFF'
     vm.pixelArray = pixelArray;
     vm.colorPallette = [ "#96EAFF", "#0DCFFF", "#05596E", "#586E1D", "#CBFC42", "#E6FCA9", "#F0A1EA", "#F03CE4", "#691A63", "#9E5603", "#FF8A05", "#FFB663", "#262626" ];
     vm.playPixels = playPixels;
+    // vm.showPopover = false;
+    // vm.triggerPopover = triggerPopover;
+
+    ///// attempted popover
+    // function triggerPopover (data) {
+    //   console.log(data);
+    //   $( "#" + data.index ).popover({
+    //     title: data.username,
+    //     placement: 'bottom',
+    //     delay: {
+    //         show: 0,
+    //         hide: 0
+    //     },
+    //   });
+    // console.log("done");
+    //
+    //   setTimeout(function () {
+    //       console.log('timeout')
+    //       $('.popover').fadeOut('slow');
+    //   }, 5000);
+
+    // }
 
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
       document.getElementById( 'current-color' ).style.backgroundColor = vm.currentColor;
-
     }
 
+    ////// current user clicked a pixel
     function applyColor( event, index ) {
       console.log( index, vm.currentColor, event );
       event.target.style.backgroundColor = vm.currentColor;
 
-      /////// SOCKET EVENT - PIXEL CLICK
+      /////// SOCKET EVENT - PIXEL CLICK - EMIT TO SERVER
       let pixelInfo = {
         index,
-        currentColor: vm.currentColor
+        currentColor: vm.currentColor,
+        username: vm.currentUser
       };
       socket.emit( 'pixel click', pixelInfo );
     }
@@ -41,8 +65,10 @@
     //// another user clicked a pixel
     socket.on( 'update pixel', function( data ) {
       // console.log('SOCKET EVENT', data, angular.element(document.getElementById(`#${data}`)));
-      console.log( data.pixelInfo.index )
-      document.getElementById( data.pixelInfo.index ).setAttribute( "style", `background-color: ${data.pixelInfo.currentColor}` );
+      console.log( data.index )
+      document.getElementById( data.index ).setAttribute( "style", `background-color: ${data.currentColor}` );
+      ////// trigger popover
+      // vm.triggerPopover(data);
     } );
 
     function pixelArray() {
@@ -90,7 +116,7 @@
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1g
             row1Lead1Volume.push( 1 )
-            row1Lead1Notes.push( 70 )
+            row1Lead1Notes.push( 50 )
             row1BassVolume.push( 0 )
             row1BassNotes.push( 0 )
             row1Lead2Volume.push( 0 )
@@ -127,7 +153,7 @@
             row1BassVolume.push( 0 )
             row1BassNotes.push( 0 )
             row1Lead2Volume.push( 1 )
-            row1Lead2Notes.push( 70 )
+            row1Lead2Notes.push( 50 )
             row1Lead3Volume.push( 0 )
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
@@ -162,7 +188,7 @@
             row1Lead2Volume.push( 0 )
             row1Lead2Notes.push( 0 )
             row1Lead3Volume.push( 1 )
-            row1Lead3Notes.push( 70 )
+            row1Lead3Notes.push( 50 )
             row1KickVolume.push( 0 )
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
@@ -191,7 +217,7 @@
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 1 )
-            row1BassNotes.push( 70 )
+            row1BassNotes.push( 50 )
             row1Lead2Volume.push( 0 )
             row1Lead2Notes.push( 0 )
             row1Lead3Volume.push( 0 )
@@ -259,7 +285,7 @@
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1G
             row2Lead1Volume.push( 1 )
-            row2Lead1Notes.push( 70 )
+            row2Lead1Notes.push( 50 )
             row2BassVolume.push( 0 )
             row2BassNotes.push( 0 )
             row2Lead2Volume.push( 0 )
@@ -296,7 +322,7 @@
             row2BassVolume.push( 0 )
             row2BassNotes.push( 0 )
             row2Lead2Volume.push( 1 )
-            row2Lead2Notes.push( 70 )
+            row2Lead2Notes.push( 50 )
             row2Lead3Volume.push( 0 )
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
@@ -331,7 +357,7 @@
             row2Lead2Volume.push( 0 )
             row2Lead2Notes.push( 0 )
             row2Lead3Volume.push( 1 )
-            row2Lead3Notes.push( 70 )
+            row2Lead3Notes.push( 50 )
             row2KickVolume.push( 0 )
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
@@ -360,7 +386,7 @@
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 1 )
-            row2BassNotes.push( 70 )
+            row2BassNotes.push( 50 )
             row2Lead2Volume.push( 0 )
             row2Lead2Notes.push( 0 )
             row2Lead3Volume.push( 0 )
@@ -427,7 +453,7 @@
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(150, 234 ,255)': //lead1g
             row3Lead1Volume.push( 1 )
-            row3Lead1Notes.push( 70 )
+            row3Lead1Notes.push( 50 )
             row3BassVolume.push( 0 )
             row3BassNotes.push( 0 )
             row3Lead2Volume.push( 0 )
@@ -464,7 +490,7 @@
             row3BassVolume.push( 0 )
             row3BassNotes.push( 0 )
             row3Lead2Volume.push( 1 )
-            row3Lead2Notes.push( 70 )
+            row3Lead2Notes.push( 50 )
             row3Lead3Volume.push( 0 )
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
@@ -499,7 +525,7 @@
             row3Lead2Volume.push( 0 )
             row3Lead2Notes.push( 0 )
             row3Lead3Volume.push( 1 )
-            row3Lead3Notes.push( 70 )
+            row3Lead3Notes.push( 50 )
             row3KickVolume.push( 0 )
             break;
           case document.getElementById( i ).style.backgroundColor === 'rgb(158, 86, 3)': //bassA
@@ -528,7 +554,7 @@
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 1 )
-            row3BassNotes.push( 70 )
+            row3BassNotes.push( 50 )
             row3Lead2Volume.push( 0 )
             row3Lead2Notes.push( 0 )
             row3Lead3Volume.push( 0 )
@@ -581,15 +607,12 @@
       var row3Kick = new KickTrack( row3KickVolume )
 
       var pixelMusic = new group( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick );
-
-
     }
 
     function Lead1Track( volArr, notesArr ) {
-
       this.track = new track()
       this.track.saw().beat( 3 ).vol( volArr ).notes( notesArr )
-      this.track.adsr( .05, 7, 1, 1 )
+      this.track.adsr( 3, 1, 1, 3 )
         //Lead1
 
     }
@@ -606,23 +629,24 @@
     function BassTrack( volArr, notesArr ) {
       console.log( volArr, notesArr );
       this.track = new track()
-      this.track.tri().beat( 1 ).vol( volArr ).notes( notesArr )
-      this.track.adsr32( .05, .5, .7, .5 )
+      this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
+      this.track.adsr32( 3, .5, .7, 3 )
         //Bass
     }
 
     function Lead2Track( volArr, notesArr ) {
       this.track = new track()
-      this.track.tri().beat( 1 ).vol( volArr ).notes( notesArr )
-      this.track.adsr32( .08, 1, .5, .5 )
+      this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
+      this.track.adsr32( 3, 1, .5, 3 )
         //Lead2
 
     }
 
     function Lead3Track( volArr, notesArr ) {
       this.track = new track()
-      this.track.square().beat( 1 ).vol( volArr ).notes( notesArr )
-      this.track.adsr32( .1, 1, .5, 2 )
+      this.track.square().beat( 3 ).vol( volArr ).notes( notesArr )
+      this.track.adsr32( 3, 1, .5, 3 )
+
 
 
       //Lead3
