@@ -1,4 +1,4 @@
-body {
+    body {
     background-image: url('/img/footer_lodyas.png');
     font-family: 'Permanent Marker', cursive;
 }
@@ -10,6 +10,7 @@ body {
 .app-container {
     height: 100vh;
 }
+
 @media screen and (min-width: 1366px) {
     #gallery-1 img {
         width: 375px;
@@ -32,10 +33,10 @@ body {
 }*/
 
 .flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .sequence {
@@ -50,10 +51,9 @@ body {
 }
 
 #logo {
-
-  padding: 0;
-  margin: 0;
-  width: 20%;
+    padding: 0;
+    margin: 0;
+    width: 20%;
 }
 
 .hero {
@@ -96,77 +96,84 @@ body {
     transform: translate(-50%, -50%);
 }
 
+
 /* hero */
+
 #hero {
-	background-image: url(../img/headphone.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding: 200px 0;
-	color: #fff;
-	position: relative;
-  text-shadow: 0 3px 3px rgba(65, 65, 65, 1);
-  text-stroke: #333;
+    background-image: url(../img/headphone.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+    color: #fff;
+    position: relative;
+    text-shadow: 0 3px 3px rgba(65, 65, 65, 1);
+    text-stroke: #333;
 }
 
 #hero .container {
-	position: relative;
+    position: relative;
 }
 
 #hero .overlay {
-	background-color: #f8e71c;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	opacity: .3;
-  -moz-box-shadow:    inset 0 0 50px #000;
-  -webkit-box-shadow: inset 0 0 50px #000;
-  box-shadow:         inset 0 0 50px #000;
+    background-color: #f8e71c;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: .3;
+    -moz-box-shadow: inset 0 0 50px #000;
+    -webkit-box-shadow: inset 0 0 50px #000;
+    box-shadow: inset 0 0 50px #000;
 }
 
 #hero h3 {
-	/*font-size: 42px;*/
-	font-weight: 800;
-	text-align: center;
-	text-transform: uppercase;
+    /*font-size: 42px;*/
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 #hero p {
-	font-size: 18px;
-	font-weight: 300;
-	text-align: center;
-	text-transform: uppercase;
-	width: 80%;
-	margin: 0 auto;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #hero .subscribe .form-control {
-	/*background-color: #282828;*/
-	color: #fff;
-  width: 45%;
-	margin: 25px auto;
-	text-transform: uppercase;
-	text-align: center;
+    /*background-color: #282828;*/
+    color: #fff;
+    width: 45%;
+    margin: 25px auto;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 #hero .btn-default-yellow {
-	border-radius: 0;
-	padding: 10px 12px;
-	width: 45%;
-	display: block;
-	margin: 0 auto;
-	border: 1px solid #282828;
+    border-radius: 0;
+    padding: 10px 12px;
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #282828;
 }
 
 #hero .container {
-  margin-top: 0;
+    margin-top: 0;
+}
+
+.btn-lg {
+    background-color: rgba(91, 165, 224, .75);
+    border: 1px solid #5BA5E0;
 }
 
 @media (max-width: 968px) {
-	#hero h3 {
-		font-size: 24px;
-		font-weight: 800;
-		line-height: 60px;
-		text-align: center;
-		text-transform: uppercase;
-	}
+    #hero h3 {
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 60px;
+        text-align: center;
+        text-transform: uppercase;
+    }
