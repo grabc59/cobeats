@@ -19,8 +19,8 @@
     vm.pixelArray = pixelArray;
     vm.colorPallette = [ "#96EAFF", "#0DCFFF", "#05596E", "#586E1D", "#CBFC42", "#E6FCA9", "#F0A1EA", "#F03CE4", "#691A63", "#9E5603", "#FF8A05", "#FFB663", "#262626" ];
     vm.playPixels = playPixels;
-    vm.showPopover = false;
-    vm.triggerPopover = triggerPopover;
+    // vm.showPopover = false;
+    // vm.triggerPopover = triggerPopover;
 
     ///// attempted popover 
     // function triggerPopover (data) {
