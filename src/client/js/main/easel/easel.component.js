@@ -6,48 +6,56 @@
       controller: controller,
       templateUrl: 'js/main/easel/easel.template.html'
     })
-    // .run(["$templateCache", function ($templateCache) {
-
-    
-//     angular.module("template/popover/popover.html", []).run(["$templateCache", function ($templateCache) {
-//     $templateCache.put("template/popover/popover.html",
-//       "<div class=\"popover {{placement}}\" ng-class=\"{ in: isOpen(), fade: animation() }\">\n" +
-//       "  <div class=\"arrow\"></div>\n" +
-//       "\n" +
-//       "  <div class=\"popover-inner\">\n" +
-//       "      <h3 class=\"popover-title\" ng-bind-html=\"title | unsafe\" ng-show=\"title\"></h3>\n" +
-//       "      <div class=\"popover-content\"ng-bind-html=\"content | unsafe\"></div>\n" +
-//       "  </div>\n" +
-//       "</div>\n" +
-//       "");
-// }]);
 
   controller.$inject = [ 'socket' ];
 
   function controller( socket ) {
     const vm = this;
 
+    vm.currentUser = localStorage.username;
     vm.selectColor = selectColor;
     vm.applyColor = applyColor;
     vm.currentColor = '#FFFFFF'
     vm.pixelArray = pixelArray;
     vm.colorPallette = [ "#96EAFF", "#0DCFFF", "#05596E", "#586E1D", "#CBFC42", "#E6FCA9", "#F0A1EA", "#F03CE4", "#691A63", "#9E5603", "#FF8A05", "#FFB663", "#262626" ];
     vm.playPixels = playPixels;
+    vm.showPopover = false;
+    vm.triggerPopover = triggerPopover;
+
+    function triggerPopover (data) {
+      console.log(data);
+      $( "#" + data.index ).popover({
+        title: data.username,
+        placement: 'bottom',
+        delay: {
+            show: 0,
+            hide: 0
+        },
+      });
+      // console.log("done");
+
+      setTimeout(function () {
+          console.log('timeout')
+          $('.popover').fadeOut('slow');
+      }, 5000);
+
+    } 
 
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
       document.getElementById( 'current-color' ).style.backgroundColor = vm.currentColor;
-
     }
 
+    ////// current user clicked a pixel
     function applyColor( event, index ) {
       console.log( index, vm.currentColor, event );
       event.target.style.backgroundColor = vm.currentColor;
 
-      /////// SOCKET EVENT - PIXEL CLICK
+      /////// SOCKET EVENT - PIXEL CLICK - EMIT TO SERVER
       let pixelInfo = {
         index,
-        currentColor: vm.currentColor
+        currentColor: vm.currentColor,
+        username: vm.currentUser
       };
       socket.emit( 'pixel click', pixelInfo );
     }
@@ -56,8 +64,10 @@
     //// another user clicked a pixel
     socket.on( 'update pixel', function( data ) {
       // console.log('SOCKET EVENT', data, angular.element(document.getElementById(`#${data}`)));
-      console.log( data.pixelInfo.index )
-      document.getElementById( data.pixelInfo.index ).setAttribute( "style", `background-color: ${data.pixelInfo.currentColor}` );
+      console.log( data.index )
+      document.getElementById( data.index ).setAttribute( "style", `background-color: ${data.currentColor}` );
+      ////// trigger popover
+      vm.triggerPopover(data);
     } );
 
     function pixelArray() {
