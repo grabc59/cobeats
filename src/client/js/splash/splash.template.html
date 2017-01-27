@@ -1,14 +1,27 @@
+<!-- <section id="hero">
+  <div class="row">
+      <div class="col-md-12 text-center">
+            <h1>Cobeats</h1>
+            <img src="../img/logo_concept.png" id="logo" class="thumbnail">
+           <button class="btn btn-primary btn-lg" ui-sref="main">Login</button>
+      </div>
+  </div>
+</section> -->
 
-<div class="navbar">
-    <div class="concept" id="logo" ng-init="logo= './img/Logo_concept.png'">
-        <!-- <ul class="list-group" id="about">
-            <li ui-sref="about">About</li>
-        </ul> -->
+
+<div id="hero">
+<div class="overlay"></div>
+<div class="container text-center">
+  <!-- <div class="col-md-12"> -->
+    <h1>Welcome to CoBeats!</h1>
+    <!-- <img src="../img/logo_concept.png" id="logo"> -->
+    <h2>Dynamically collaborate and chat with your community, while making art!</h2>
+  <!-- </div> -->
+  <div class="col-md-12">
+    <div>
+      <user-login></user-login>
     </div>
-    <div ng-init="headphone='./img/headphone.jpg'">
-        <button class="center" id="login" ui-sref="main">Login</button>
-        <img ng-src="{{headphone}}" height="710px" width="1440px">
-        <img ng-src="{{logo}}" height="125px" width="125px">
-    </div>
+  </div>
 </div>
-<user-login></user-login>
+</div><!-- /#hero -->
+
