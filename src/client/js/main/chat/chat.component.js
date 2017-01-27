@@ -84,6 +84,11 @@
       ////// NEW USER NOTIFICATION
       socket.on('new user notification', function(data) {
         console.log(data);
+        vm.userConnectedMsg = {
+          username: data,
+          content: " has connected!"
+        }
+        vm.chatMessages.push(vm.userConnectedMsg);
         //$messageHistory.append('<div class="well"><strong>' + data + '</strong> has joined the chat');
       });
 
