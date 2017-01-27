@@ -81,16 +81,13 @@
   position: fixed;
 }
 
-/*#about {
+#about {
   font-style: italic;
   font-size: 16px;
   color: white;
-  display: inline-block;
+  /*display: inline-block;*/
   font-size: 16px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}*/
+}
 
 #login{
   position: fixed;
