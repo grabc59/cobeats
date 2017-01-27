@@ -1,115 +1,133 @@
 body {
-  background-image: url('/img/footer_lodyas.png');
-  font-family: 'Permanent Marker', cursive;
+    background-image: url('/img/footer_lodyas.png');
+    font-family: 'Permanent Marker', cursive;
 }
 
 .border {
-  border: 1px solid #000;
+    border: 1px solid #000;
 }
 
 .app-container {
-  height: 100vh;
+    height: 100vh;
 }
 
 @media screen and (min-width: 1366px) {
-#gallery-1 img {width:375px;}
+    #gallery-1 img {
+        width: 375px;
+    }
 }
+
+
 /*@media screen and (min-width: 1440px) {
 #gallery-1 img {width:428px;}
 }*/
+
+
 /*@media screen and (min-width: 1600px) {
 #gallery-1 img {width:434px;}
 }*/
+
+
 /*@media screen and (min-width: 1920px) {
 #gallery-1 img {width:540px;}
 }*/
 
 .flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .flex-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
-.sequence{
-  /*border: 1px solid;
+.sequence {
+    /*border: 1px solid;
   display: block;*/
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 80%;
-  background-color: #281E1E;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    background-color: #281E1E;
+    align-items: center;
 }
 
-.beat{
-  border: 1px solid;
-  background-color: #bbb;
-  width: 5%;
-  height: 0;
-  padding-bottom: 3%;
+.beat {
+    border: 1px solid;
+    background-color: #bbb;
+    width: 5%;
+    height: 0;
+    padding-bottom: 3%;
 }
 
 .current {
-  border: 1px solid;
-  /*background: rgba(87, 164, 226, 0.5) !important;*/
-  background: #57a4e2 !important;
-  width: 5%;
-  height: 0;
-  padding-bottom: 3%;
+    border: 1px solid;
+    /*background: rgba(87, 164, 226, 0.5) !important;*/
+    background: #57a4e2 !important;
+    width: 5%;
+    height: 0;
+    padding-bottom: 3%;
 }
 
 .active-class {
-  border: 1px solid;
-  /*background: rgba(242, 255, 80, 0.5);*/
-  background: #f2ff50;
-  width: 5%;
-  height: 0;
-  padding-bottom: 3%;
+    border: 1px solid;
+    /*background: rgba(242, 255, 80, 0.5);*/
+    background: #f2ff50;
+    width: 5%;
+    height: 0;
+    padding-bottom: 3%;
 }
 
-#logo {
-  position: fixed;
-  float: center;
-}
+/*#logo {
+    position: fixed;
+    float: center;
+}*/
+
+/*#mainLogo {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  .vertical-align {
+    vertical-align: top;
+}*/
+
 .hero {
-  color: white;
-  font-size: 5em;
-  display: inline;
+    color: white;
+    font-size: 5em;
+    display: inline;
 }
+
 .hero:hover {
-  color: blue;
-  text-decoration: none;
-
+    color: #5BA5E0;
+    text-decoration: none;
 }
 
-.concept{
-  position: fixed;
+.concept {
+    position: fixed;
 }
 
 #about {
-  font-style: italic;
-  font-size: 16px;
-  color: white;
-  /*display: inline-block;*/
-  font-size: 16px;
+    font-style: italic;
+    font-size: 16px;
+    color: white;
+    /*display: inline-block;*/
+    font-size: 16px;
 }
 
-#login{
-  position: fixed;
-  float: center;
-  background-color: transparent;
+#login {
+    position: fixed;
+    float: center;
+    background-color: transparent;
     border: 3px solid white;
-    padding:14px 50px;
+    padding: 14px 50px;
     text-transform: none;
     text-align: center;
     text-decoration: none;
@@ -119,9 +137,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
+
 .navbar {
-   background-color: black;
-   position: static;
+    background-color: black;
+    position: static;
 }
