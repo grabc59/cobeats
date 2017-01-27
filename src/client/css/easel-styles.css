@@ -4,6 +4,7 @@ html {
 
 #easel {
     margin: auto;
+    margin-top: 1.5rem;
     background-color: #5C5C5C;
     display: flex;
     width: min-content;
@@ -11,7 +12,7 @@ html {
     flex-wrap: wrap;
     flex-basis: auto;
     align-content: center;
-    padding: 3%;
+    padding: 5rem 3rem;
     border: 1px solid #202020;
     border-radius: 10px;
 
