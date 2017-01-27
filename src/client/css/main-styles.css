@@ -5,13 +5,35 @@
 /*nav, .nav-wrapper {
   height: 75px;
   line-height: 75px;
-  /*background-color: #e9e7da;*/
+  background-color: #e9e7da;
 }*/
-
+nav {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 nav ul a {
   color: #cda34f;
   font-weight: 300;
   font-size: 1.25rem;
+  /*position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-style: preserve-3d;*/
+}
+nav img {
+  /*padding-top: 1rem;*/
+}
+.brand {
+  padding-top: .5rem;
+  float: right;
+  /*margin-bottom: 2rem;*/
+}
+.brand-logo{
+  /*position: relative;
+  top: 70%;
+  transform: translateY(-80%);
+  transform-style: preserve-3d;*/
+  padding-top: 30px;
 }
 
 a{

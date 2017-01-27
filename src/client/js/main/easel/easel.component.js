@@ -5,7 +5,7 @@
     .component( 'easel', {
       controller: controller,
       templateUrl: 'js/main/easel/easel.template.html'
-    })
+    } )
 
   controller.$inject = [ 'socket' ];
 
@@ -22,7 +22,7 @@
     // vm.showPopover = false;
     // vm.triggerPopover = triggerPopover;
 
-    ///// attempted popover 
+    ///// attempted popover
     // function triggerPopover (data) {
     //   console.log(data);
     //   $( "#" + data.index ).popover({
@@ -33,14 +33,14 @@
     //         hide: 0
     //     },
     //   });
-      // console.log("done");
-    // 
+    // console.log("done");
+    //
     //   setTimeout(function () {
     //       console.log('timeout')
     //       $('.popover').fadeOut('slow');
     //   }, 5000);
 
-    // } 
+    // }
 
     function selectColor( event ) {
       vm.currentColor = event.target.style.backgroundColor;
@@ -224,7 +224,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38, 38, 38)': //kick
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -393,7 +393,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38, 38, 38)': //kick
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -561,7 +561,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38, 38, 38)': //kick
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -607,12 +607,9 @@
       var row3Kick = new KickTrack( row3KickVolume )
 
       var pixelMusic = new group( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick );
-
-
     }
 
     function Lead1Track( volArr, notesArr ) {
-
       this.track = new track()
       this.track.saw().beat( 3 ).vol( volArr ).notes( notesArr )
       this.track.adsr( 3, 1, 1, 3 )
@@ -623,7 +620,7 @@
     function KickTrack( volArr ) {
       console.log( volArr );
       this.track = new track()
-      this.track.sine().beat( 3 ).vol( volArr )
+      this.track.sine().beat( 1 ).vol( volArr )
       this.track.adsr( 0, .05, 0, 0 )
         //Kick
 
@@ -649,6 +646,7 @@
       this.track = new track()
       this.track.square().beat( 3 ).vol( volArr ).notes( notesArr )
       this.track.adsr32( 3, 1, .5, 3 )
+
 
 
       //Lead3
