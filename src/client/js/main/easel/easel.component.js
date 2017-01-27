@@ -198,7 +198,7 @@
             row1Lead3Notes.push( 0 )
             row1KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38, 38, 38)': //kick
             row1Lead1Volume.push( 0 )
             row1Lead1Notes.push( 0 )
             row1BassVolume.push( 0 )
@@ -367,7 +367,7 @@
             row2Lead3Notes.push( 0 )
             row2KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38, 38, 38)': //kick
             row2Lead1Volume.push( 0 )
             row2Lead1Notes.push( 0 )
             row2BassVolume.push( 0 )
@@ -535,7 +535,7 @@
             row3Lead3Notes.push( 0 )
             row3KickVolume.push( 0 )
             break;
-          case document.getElementById( i ).style.backgroundColor === 'rgb(38,38,38)': //kick
+          case document.getElementById( i ).style.backgroundColor === 'rgb(38, 38, 38)': //kick
             row3Lead1Volume.push( 0 )
             row3Lead1Notes.push( 0 )
             row3BassVolume.push( 0 )
@@ -597,7 +597,7 @@
     function KickTrack( volArr ) {
       console.log( volArr );
       this.track = new track()
-      this.track.sine().beat( 3 ).vol( volArr )
+      this.track.sine().beat( 1 ).vol( volArr )
       this.track.adsr( 0, .05, 0, 0 )
         //Kick
 
@@ -606,14 +606,14 @@
     function BassTrack( volArr, notesArr ) {
       console.log( volArr, notesArr );
       this.track = new track()
-      this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
+      this.track.tri().beat( 1 ).vol( volArr ).notes( notesArr )
       this.track.adsr32( .05, .5, .7, .5 )
         //Bass
     }
 
     function Lead2Track( volArr, notesArr ) {
       this.track = new track()
-      this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
+      this.track.tri().beat( 1 ).vol( volArr ).notes( notesArr )
       this.track.adsr32( .08, 1, .5, .5 )
         //Lead2
 
@@ -621,7 +621,7 @@
 
     function Lead3Track( volArr, notesArr ) {
       this.track = new track()
-      this.track.square().beat( 3 ).vol( volArr ).notes( notesArr )
+      this.track.square().beat( 1 ).vol( volArr ).notes( notesArr )
       this.track.adsr32( .1, 1, .5, 2 )
 
 
