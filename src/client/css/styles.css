@@ -24,15 +24,6 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: stretch;
 }
 
 .sequence{
@@ -73,8 +64,9 @@
 }
 
 #logo {
-  position: fixed;
-  float: center;
+  padding: 0;
+  margin: 0;
+  width: 20%;
 }
 
 .concept{
@@ -109,7 +101,77 @@
     transform: translate(-50%, -50%);
 
 }
-.navbar {
-   background-color: black;
-   position: static;
+
+/* intro5 */
+#intro5 {
+	background-image: url(../img/headphone.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 200px 0;
+	color: #282828;
+	position: relative;
+}
+
+#intro5 .container {
+	position: relative;
+}
+
+#intro5 .overlay {
+	background-color: #f8e71c;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	opacity: .7;
+  -moz-box-shadow:    inset 0 0 20px #000;
+  -webkit-box-shadow: inset 0 0 20px #000;
+  box-shadow:         inset 0 0 20px #000;
+}
+
+#intro5 h3 {
+	font-size: 42px;
+	font-weight: 800;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#intro5 p {
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	width: 80%;
+	margin: 0 auto;
+}
+
+#intro5 .subscribe .form-control {
+	/*background-color: #282828;*/
+	color: #fff;
+  width: 45%;
+	margin: 25px auto;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#intro5 .btn-default-yellow {
+	border-radius: 0;
+	padding: 10px 12px;
+	width: 45%;
+	display: block;
+	margin: 0 auto;
+	border: 1px solid #282828;
+}
+
+#intro5 .container {
+  margin-top: 0;
+}
+
+@media (max-width: 968px) {
+	#intro5 h3 {
+		font-size: 24px;
+		font-weight: 800;
+		line-height: 60px;
+		text-align: center;
+		text-transform: uppercase;
+	}
 }
