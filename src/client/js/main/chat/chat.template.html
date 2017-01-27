@@ -3,7 +3,7 @@
 <div class= "chat_container">
   <!-- <div class="row" id="messageArea"> -->
       <!-- <div class="col-md-3" style="height: 100%"> -->
-          <div class="well">
+          <div class="well online_users">
               <h3>Online Users</h3>
               <ul class="list-group" id="users">
                   <li ng-repeat="user in $ctrl.connected_users track by $index" class="list-group-item" ng-class="{active: user == $ctrl.current_user}">{{user}}
@@ -24,10 +24,8 @@
           <div class="chat" id="chat">
               <form id="messageForm" ng-submit="$ctrl.sendMessage($ctrl.newMessage)">
                   <div class="form-group">
-                      <label>Enter a message</label>
-                      <input ng-model="$ctrl.newMessage.content" class="form-control" id="message"></input>
-                      <br/>
-                      <button id="sendMessageBtn" class="btn btn-primary" type="submit">Send Message</button>
+                      <input type='text' ng-model="$ctrl.newMessage.content" class="form-control" id="message">
+                      <input id='chat_submit' type="submit" class="btn btn-primary" value="Send Message" />
                   </div>
               </form>
           </div>

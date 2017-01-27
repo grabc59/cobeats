@@ -1,7 +1,7 @@
 #messageHistory {
   overflow: scroll;
   height: 300px;
-  width: 200px;
+  margin: 20px 0 0 0;
   background-color: rgba(255, 255, 255, .2);
   padding: 10px;
 }
@@ -10,14 +10,27 @@
   position: relative;
   margin: auto;
   height: 300px;
-  width: 200px;
-
 }
-
+#messageForm {
+  width: 78.1%;
+  float: right;
+}
+#chat_submit {
+  float: right;
+}
+#message {
+  width: 85%;
+  float: left;
+}
 #updates {
   min-height: 20px;
 
 }
 .chat_container{
-  float: right;
+
+}
+.online_users {
+  width: 20%;
+  margin: 0px 20px 0 0;
+  float: left;
 }
