@@ -81,6 +81,16 @@ body {
   position: fixed;
   float: center;
 }
+.hero {
+  color: white;
+  font-size: 5em;
+  display: inline;
+}
+.hero:hover {
+  color: blue;
+  text-decoration: none;
+
+}
 
 .concept{
   position: fixed;
