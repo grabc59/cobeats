@@ -64,6 +64,10 @@ html {
     float: left;
 }
 
+.current {
+  border-top: .7rem solid rgba(251, 255, 73, 0.48);
+}
+
 
 /* ---- palette ---- */
 

@@ -2,7 +2,7 @@
     <div id="easel">
         <div id="grid-container">
             <!-- populate with pixel-rows of pixel-divs -->
-            <div ng-click="$ctrl.applyColor($event, $index)" id="{{$index}}" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
+            <div ng-click="$ctrl.applyColor($event)" id="{{$index + 1}}" class="pixel-div" ng-repeat="pixel in $ctrl.pixelArray() track by $index"></div>
         </div>
         <div class="row">
 
@@ -14,7 +14,7 @@
             </div>
             <div class="row" style="text-align: center;">
                 <button id="play" ng-click="$ctrl.playPixels()">Play it!</button>
-                <button id="stop" ng-click="$ctrl.setOresetTracks()">Stop it!</button>
+                <button id="stop" ng-click="$ctrl.stopTracks()">Stop it!</button>
             </div>
         </div>
 

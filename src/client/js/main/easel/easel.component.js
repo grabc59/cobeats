@@ -20,6 +20,7 @@
     vm.colorPallette = [ "#96EAFF", "#0DCFFF", "#05596E", "#586E1D", "#CBFC42", "#E6FCA9", "#F0A1EA", "#F03CE4", "#691A63", "#9E5603", "#FF8A05", "#FFB663", "#262626" ];
     vm.playPixels = playPixels;
     vm.setOrResetTracks = setOrResetTracks;
+    vm.stopTracks = stopTracks;
     var tracks;
     var pixelMusic = new group();
     // vm.showPopover = false;
@@ -51,13 +52,12 @@
     }
 
     ////// current user clicked a pixel
-    function applyColor( event, index ) {
-      console.log( index, vm.currentColor, event );
+    function applyColor( event ) {
       event.target.style.backgroundColor = vm.currentColor;
 
       /////// SOCKET EVENT - PIXEL CLICK - EMIT TO SERVER
       let pixelInfo = {
-        index,
+        id: event.target.id,
         currentColor: vm.currentColor,
         username: vm.currentUser
       };
@@ -67,9 +67,7 @@
     /////// SOCKET EVENT - UPDATE PIXEL
     //// another user clicked a pixel
     socket.on( 'update pixel', function( data ) {
-      // console.log('SOCKET EVENT', data, angular.element(document.getElementById(`#${data}`)));
-      console.log( data.index )
-      document.getElementById( data.index ).setAttribute( "style", `background-color: ${data.currentColor}` );
+      document.getElementById( data.id ).setAttribute( "style", `background-color: ${data.currentColor}` );
       ////// trigger popover
       // vm.triggerPopover(data);
     } );
@@ -92,7 +90,7 @@
       var row1KickVolume = [];
 
       // iterate over first row, create first sound layer
-      for ( var i = 0; i < 16; i++ ) {
+      for ( var i = 1; i < 17; i++ ) {
         switch ( true ) {
           case document.getElementById( i ).style.backgroundColor === 'rgb(5, 89, 110)': //lead1a
             row1Lead1Volume.push( 1 )
@@ -261,7 +259,7 @@
       var row2Lead3Volume = [];
       var row2Lead3Notes = [];
       var row2KickVolume = [];
-      for ( var i = 16; i < 32; i++ ) {
+      for ( var i = 17; i < 33; i++ ) {
         switch ( true ) {
           case document.getElementById( i ).style.backgroundColor === 'rgb(5, 89, 110)': //lead1A
             row2Lead1Volume.push( 1 )
@@ -429,7 +427,7 @@
       var row3Lead3Volume = [];
       var row3Lead3Notes = [];
       var row3KickVolume = [];
-      for ( var i = 32; i < 48; i++ ) {
+      for ( var i = 33; i < 49; i++ ) {
         switch ( true ) {
           case document.getElementById( i ).style.backgroundColor === 'rgb(5, 89, 110)': //lead1a
             row3Lead1Volume.push( 1 )
@@ -610,7 +608,7 @@
 
       // var pixelMusic = new group( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick );
       setOrResetTracks( row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick )
-      tracks = row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick
+      tracks = [ row1Lead1, row2Lead1, row3Lead1, row1Lead2, row2Lead2, row3Lead2, row1Lead3, row2Lead3, row3Lead3, row1Bass, row2Bass, row3Bass, row1Kick, row2Kick, row3Kick ]
 
       //reset arrays
       row1Lead1Volume = [];
@@ -650,36 +648,42 @@
       }
     }
 
+    function stopTracks() {
+
+      tracks.forEach( function( item ) {
+        item.track.beat()
+      } )
+      pixelMusic.remove( ...tracks );
+    }
+
     function Lead1Track( volArr, notesArr ) {
       this.track = new track()
       this.track.saw().beat( 3 ).vol( volArr ).notes( notesArr )
       this.track.adsr( 3, 1, 1, 3 )
-        //Lead1
+      //Lead1
 
     }
 
     function KickTrack( volArr ) {
-      console.log( volArr );
       this.track = new track()
-      this.track.sine().beat( 1 ).vol( volArr )
+      this.track.sine().beat( 3 ).vol( volArr )
       this.track.adsr( 0, .05, 0, 0 )
-        //Kick
+      //Kick
 
     }
 
     function BassTrack( volArr, notesArr ) {
-      console.log( volArr, notesArr );
       this.track = new track()
       this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
       this.track.adsr32( 3, .5, .7, 3 )
-        //Bass
+      //Bass
     }
 
     function Lead2Track( volArr, notesArr ) {
       this.track = new track()
       this.track.tri().beat( 3 ).vol( volArr ).notes( notesArr )
       this.track.adsr32( 3, 1, .5, 3 )
-        //Lead2
+      //Lead2
 
     }
 

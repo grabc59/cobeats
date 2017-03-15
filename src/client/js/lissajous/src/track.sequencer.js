@@ -22,17 +22,21 @@ Sequencer.prototype.next = function( nextTick ) {
 
     } else {
       self.callback( self.pattern[ self.currentStep ], nextTick );
-
-      console.log( self.pattern );
-      // if ( self.currentStep >= 1 ) {
-      //   var previousStep = self.currentStep - 1;
+      console.log( "current step:", self.currentStep );
+      // code inserted by coBeats team for visualization of stepping
+      // if ( self.currentStep > 0 ) {
+      //   var previousStep = ( self.currentStep ).toString();
       //   var previousCell = document.getElementById( previousStep );
       //   previousCell.classList.remove( 'current' );
-      // } else if ( document.getElementById( "15" ).classList.contains( "current" ) ) {
-      //   document.getElementById( "15" ).classList.remove( "current" )
-      //
+      // } else if ( document.getElementById( "16" ).classList.contains( "current" ) ) {
+      //   document.getElementById( "16" ).classList.remove( "current" )
+      // } else if ( document.getElementById( "1" ).classList.contains( "current" ) ) {
+      //   document.getElementById( "1" ).classList.remove( "current" )
       // }
-      // var d = document.getElementById( self.currentStep );
+      // if (self.currentStep === 0) {
+      //   document.getElementById( "1" ).classList.
+      // }
+      // var d = document.getElementById( self.currentStep + 1 );
       // d.classList.add( "current" );
 
     }
